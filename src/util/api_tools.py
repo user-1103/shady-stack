@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import importlib.util
 
-from default_demon.data_types import BadRequest, Request
+from util.request_tools import BadRequest, Request
 
 # The collection of api's
 API_GROUP: Dict[str, 'API'] = dict()

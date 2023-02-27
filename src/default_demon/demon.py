@@ -1,8 +1,6 @@
 from pathlib import Path
-from threading import Thread
 from typing import List
-from default_demon.api_tools import G, HOOKS, HookTypes, call_hooks, process_request, collect_apis
-from itertools import count
+from util.api_tools import G, HOOKS, HookTypes, call_hooks, process_request, collect_apis
 from collections import deque
 from time import sleep
 
@@ -11,7 +9,7 @@ G["Q"] = deque()
 MAX_SLEEP = 1
 
 
-def run_api_deamon(root: Path, api_paths: List[Path]) -> None:
+def run_api_demon(root: Path, api_paths: List[Path]) -> None:
     """
     Run the app, with self restarting on recoverable errors.
     """

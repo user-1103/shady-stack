@@ -317,7 +317,7 @@ test = ["pytest (>=6)"]
 name = "flit-core"
 version = "3.8.0"
 description = "Distribution-building parts of Flit. See flit package for more information"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -848,4 +848,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3c2c7314a4d9af0909d4262f01d5fdd3d646aec1466b7c2bcd66c931a8c0bdd0"
+content-hash = "6e98c3ddf124cf0b7d602804c051a5e3a0f2d0bb0c938232d8b3d9d3df1137fa"

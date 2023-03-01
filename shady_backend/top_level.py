@@ -41,4 +41,8 @@ def on_exit(signum, stack) -> None:
 
 signal(SIGINT, on_exit)
 
-run_top_level({"test": 1}, "fish")
+def run() -> None:
+    run_top_level({"test": 1}, "fish")
+
+if __name__ == "__main__":
+    run()

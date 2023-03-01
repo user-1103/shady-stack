@@ -1,54 +1,24 @@
 {
-  description = "Python application flake";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-
-    mach-nix.url = "github:davhau/mach-nix";
-  };
-
-  outputs = { self, nixpkgs, mach-nix, flake-utils, ... }:
+  outputs = { self, nixpkgs }:
     let
-      pythonVersion = "python39";
+      supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
     in
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        mach = mach-nix.lib.${system};
+    {
+      packages = forAllSystems (system: {
+        default = pkgs.${system}.poetry2nix.mkPoetryApplication { projectDir = self; };
+      });
 
-        pythonApp = mach.buildPythonApplication ./.;
-        pythonAppEnv = mach.mkPython {
-          python = pythonVersion;
-          requirements = builtins.readFile ./requirements.txt;
+      devShells = forAllSystems (system: {
+        default = pkgs.${system}.mkShellNoCC {
+          packages = with pkgs.${system}; [
+            (poetry2nix.mkPoetryEnv { projectDir = self; })
+            poetry
+          ];
         };
-        pythonAppImage = pkgs.dockerTools.buildLayeredImage {
-          name = pythonApp.pname;
-          contents = [ pythonApp ];
-          config.Cmd = [ "${pythonApp}/bin/main" ];
-        };
-      in
-      rec
-      {
-        packages = {
-          image = pythonAppImage;
-
-          pythonPkg = pythonApp;
-          default = packages.pythonPkg;
-        };
-
-        apps.default = {
-          type = "app";
-          program = "${packages.pythonPkg}/bin/main";
-        };
-
-        devShells.default = pkgs.mkShellNoCC {
-          packages = [ pythonAppEnv ];
-
-          shellHook = ''
-            export PYTHONPATH="${pythonAppEnv}/bin/python"
-          '';
-        };
-      }
-    );
+      });
+    };
 }

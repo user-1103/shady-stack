@@ -1,8 +1,13 @@
+import logging as log
+log.basicConfig(level=log.DEBUG)
 from pathlib import Path
 from typing import Dict, Any
 from threading import Thread
-from bridge.discord_bridge import build_bridge
-from util.api_tools import G
+from sys import exit
+from signal import signal, SIGINT
+
+# from bridge.discord_bridge import build_bridge
+from util.api_tools import G, HookTypes, call_hooks
 from default_demon.demon import run_api_demon
 
 DEFAULT_WEB_ROOT = "./tree"
@@ -15,12 +20,25 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
     """
     root_path = Path(root)
     api_path = [Path(api)]
+    log.debug(f"Using {root_path=} {api_path=}")
     G.update(start_g)
+    log.debug(f"Using {start_g=}")
     api_thread = Thread(target=run_api_demon, name="API Demon",
                         args=[root_path, api_path], daemon=True)
-    bridge_thread = Thread(target=build_bridge, name="Hook Bridge",
-                           args=[G], daemon=True)
+    #bridge_thread = Thread(target=build_bridge, name="Hook Bridge",
+    #                       args=[G], daemon=True)
+    log.info("Starting API Demon thread")
     api_thread.run()
-    bridge_thread.run()
+    #bridge_thread.run()
 
+def on_exit(signum, stack) -> None:
+    """
+    Calls the redigested EXIT hooks on kill signal
+    """
+    log.fatal("Killed by user")
+    call_hooks(HookTypes.EXIT)
+    exit(0)
 
+signal(SIGINT, on_exit)
+
+run_top_level({"test": 1}, "fish")

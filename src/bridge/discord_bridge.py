@@ -1,7 +1,8 @@
-from typing import Any, Dict
 import discord
+from typing import Any, Dict
 from util.request_tools import Request
 from json import loads
+import logging as log
 
 
 def build_bridge(g: Dict[str, Any]) -> None:
@@ -12,7 +13,7 @@ def build_bridge(g: Dict[str, Any]) -> None:
 
     @client.event
     async def on_ready():
-        print(f'Started Discord Bridge {client.user}')
+        log.info(f'Started Discord Bridge {client.user}')
 
     @client.event
     async def on_message(message):
@@ -21,8 +22,10 @@ def build_bridge(g: Dict[str, Any]) -> None:
         try:
             rjson = loads(message.content)
             tmp = Request(rjson["api_call"], rjson["data"])
+            log.info(f"Received hook data: {tmp}")
             g["Q"].appendleft(tmp)
         except Exception as e:
             err = e
+            log.error(f"Failed to pass message to API: {e}")
 
     client.run(g["discord_token"])

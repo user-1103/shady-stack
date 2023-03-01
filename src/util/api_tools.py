@@ -4,6 +4,7 @@ from typing import Any, Callable, Dict, List, Union
 from pathlib import Path
 import sys
 import importlib.util
+import logging as log
 
 from util.request_tools import BadRequest, Request
 
@@ -14,7 +15,7 @@ API_GROUP: Dict[str, 'API'] = dict()
 G: Dict[Any, Any] = dict()
 
 # Keeyed list of hooks to run
-HOOKS: Dict['HookTypes', List[Callable]]
+HOOKS: Dict['HookTypes', List[Callable]] = dict()
 
 
 class MalformedAPI(Exception):
@@ -50,6 +51,7 @@ def defnine_API(call_function: Callable, baseline: Dict[str, Any]) -> None:
     """
     tmp = API(call_function.__name__, call_function, baseline)
     API_GROUP.update({tmp.name: tmp})
+    log.debug(f"Registered {call_function.__name__} with baseline {baseline}")
 
 
 class HookTypes(Enum):
@@ -73,16 +75,19 @@ def define_hook(call_function: Callable, hook: HookTypes) -> None:
     tmp = HOOKS.get(hook, list())
     tmp = [*tmp, call_function]
     HOOKS.update({hook: tmp})
+    log.debug(f"Registered {call_function.__name__} for {hook}")
 
 
 def call_hooks(hook: HookTypes) -> None:
     """
     Calls all hooks registered with a given name.
     """
+    log.debug(f"Calling internal hook {hook}")
     h = HOOKS.get(hook, None)
     if (h is None):
         return
     for hook_call in h:
+        log.debug(f"Calling {hook_call.__name__}")
         hook_call(G)
 
 
@@ -95,6 +100,7 @@ def collect_apis(path: Path) -> None:
         api = importlib.util.module_from_spec(spec)
         sys.modules["api"] = api
         spec.loader.exec_module(api)
+        log.info(f"Collected api at {path=}")
     except Exception as e:
         raise MalformedAPI(f"Could not load API: \n {e}")
 
@@ -107,4 +113,5 @@ def process_request(request: Request) -> None:
     if (api is None):
         raise BadRequest(f"Unknown API '{request.api_call}'")
     else:
+        log.debug(f"Processing {request} with {api}")
         api(request)

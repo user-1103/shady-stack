@@ -9,7 +9,18 @@
     in
     {
       packages = forAllSystems (system: {
-        default = pkgs.${system}.poetry2nix.mkPoetryApplication { projectDir = self; };
+        default = pkgs.${system}.poetry2nix.mkPoetryApplication {
+          projectDir = self;
+          overrides = poetry2nix.defaultPoetryOverrides.extend
+            (self: super: {
+              discordpy = super.discordpy.overridePythonAttrs
+                (
+                  old: {
+                    buildInputs = (old.buildInputs or [ ]) ++ [ super.flit ];
+                  }
+                );
+            });
+        };
       });
 
       devShells = forAllSystems (system: {

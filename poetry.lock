@@ -255,14 +255,14 @@ files = [
 
 [[package]]
 name = "discord-py"
-version = "2.2.1"
+version = "2.2.2"
 description = "A Python wrapper for the Discord API"
 category = "main"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "discord.py-2.2.1-py3-none-any.whl", hash = "sha256:c2b8c9f411d27117902f083594d81ac0de9bf168d538a0f9c6640944a9c15367"},
-    {file = "discord.py-2.2.1.tar.gz", hash = "sha256:419f7b9487faf2bec5606f9f94158c5408ca057f289cc87bb21aed6ce84279ee"},
+    {file = "discord.py-2.2.2-py3-none-any.whl", hash = "sha256:38fc52a784727b8e5e5749267089400035b187a009028eddfabeb182abcc6d52"},
+    {file = "discord.py-2.2.2.tar.gz", hash = "sha256:b9944056bcb5711b2d04088848fd004466cf117c15c84fa798bf55470f28275f"},
 ]
 
 [package.dependencies]

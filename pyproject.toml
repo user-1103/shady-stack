@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "The defualt tool-chain for the SHADY Stack."
 authors = ["USER 1103 <79700949+user-1103@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "shady_backend"}]
+packages = [{include = "shady-backend"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -17,3 +17,6 @@ Jinja2 = "^3.1.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+my_package_cli = 'shady-backend:main'

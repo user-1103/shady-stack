@@ -11,7 +11,7 @@
       packages = forAllSystems (system: {
         default = pkgs.${system}.poetry2nix.mkPoetryApplication {
           projectDir = self;
-          overrides = poetry2nix.defaultPoetryOverrides.extend
+          overrides = pkgs.${system}.poetry2nix.defaultPoetryOverrides.extend
             (self: super: {
               discordpy = super.discordpy.overridePythonAttrs
                 (

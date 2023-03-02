@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "shady-backend"
+name = "shadybackend"
 version = "0.1.0"
 description = "The defualt tool-chain for the SHADY Stack."
 authors = ["USER 1103 <79700949+user-1103@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "shady-backend"}]
+packages = [{include = "shady_backend"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -19,4 +19,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-shady-backend = 'shadybackend:main'
+shady-backend = 'shady_backend:main'

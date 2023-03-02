@@ -1,6 +1,6 @@
 import discord
 from typing import Any, Dict
-from util.request_tools import Request
+from request_tools import Request
 from json import loads
 import logging as log
 

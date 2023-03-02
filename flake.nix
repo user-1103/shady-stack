@@ -16,7 +16,7 @@
               discordpy = super.discordpy.overridePythonAttrs
                 (
                   old: {
-                    buildInputs = (old.buildInputs or [ ]) ++ [ super.hatchling ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [ super.setuptools ];
                   }
                 );
             });

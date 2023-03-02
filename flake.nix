@@ -22,7 +22,7 @@
               pytest = super.pytest.overridePythonAttrs
                 (
                   old: {
-                    buildInputs = (old.buildInputs or [ ]) ++ [ super.hatch ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [ super.hatchling ];
                   }
                 );
             });

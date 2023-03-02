@@ -287,18 +287,6 @@ test = ["coverage[toml]", "pytest", "pytest-asyncio", "pytest-cov", "pytest-mock
 voice = ["PyNaCl (>=1.3.0,<1.6)"]
 
 [[package]]
-name = "editables"
-version = "0.3"
-description = "Editable installations"
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "editables-0.3-py3-none-any.whl", hash = "sha256:ee686a8db9f5d91da39849f175ffeef094dd0e9c36d6a59a2e8c7f92a3b80020"},
-    {file = "editables-0.3.tar.gz", hash = "sha256:167524e377358ed1f1374e61c268f0d7a4bf7dbd046c656f7b410cde16161b1a"},
-]
-
-[[package]]
 name = "exceptiongroup"
 version = "1.1.0"
 description = "Backport of PEP 654 (exception groups)"
@@ -396,25 +384,6 @@ files = [
     {file = "frozenlist-1.3.3-cp39-cp39-win_amd64.whl", hash = "sha256:cfe33efc9cb900a4c46f91a5ceba26d6df370ffddd9ca386eb1d4f0ad97b9ea9"},
     {file = "frozenlist-1.3.3.tar.gz", hash = "sha256:58bcc55721e8a90b88332d6cd441261ebb22342e238296bb330968952fbb3a6a"},
 ]
-
-[[package]]
-name = "hatchling"
-version = "1.13.0"
-description = "Modern, extensible Python build backend"
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "hatchling-1.13.0-py3-none-any.whl", hash = "sha256:357d5a5abac0d28e24fa87534efc63f5ba3f9b3306675678049ca4ba9f2a6674"},
-    {file = "hatchling-1.13.0.tar.gz", hash = "sha256:f8d275a2cc720735286b7c2e2bc35da05761e6d3695c2fa416550395f10c53c7"},
-]
-
-[package.dependencies]
-editables = ">=0.3"
-packaging = ">=21.3"
-pathspec = ">=0.10.1"
-pluggy = ">=1.0.0"
-tomli = {version = ">=1.2.2", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "idna"
@@ -615,18 +584,6 @@ files = [
 ]
 
 [[package]]
-name = "pathspec"
-version = "0.11.0"
-description = "Utility library for gitignore style pattern matching of file paths."
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "pathspec-0.11.0-py3-none-any.whl", hash = "sha256:3a66eb970cbac598f9e5ccb5b2cf58930cd8e3ed86d393d541eaf2d8b1705229"},
-    {file = "pathspec-0.11.0.tar.gz", hash = "sha256:64d338d4e0914e91c1792321e6907b5a593f1ab1851de7fc269557a21b30ebbc"},
-]
-
-[[package]]
 name = "pluggy"
 version = "1.0.0"
 description = "plugin and hook calling mechanisms for python"
@@ -769,4 +726,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "ea7a824ea2a90d220b1718a3619a15e0ba8466e724e387f63f249bcfb940315b"
+content-hash = "c7a01007276c237133f157504bf438c15c7fa2ff8167e36cdbd59b1d7baff6ea"

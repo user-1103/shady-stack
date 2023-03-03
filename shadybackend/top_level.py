@@ -6,7 +6,7 @@ from threading import Thread
 from sys import exit
 from signal import signal, SIGINT
 
-# from bridge.discord_bridge import build_bridge
+from shadybackend.discord_bridge import build_bridge
 from shadybackend.api_tools import G, HookTypes, call_hooks
 from shadybackend.demon import run_api_demon
 
@@ -25,8 +25,8 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
     log.debug(f"Using {start_g=}")
     api_thread = Thread(target=run_api_demon, name="API Demon",
                         args=[root_path, api_path], daemon=True)
-    #bridge_thread = Thread(target=build_bridge, name="Hook Bridge",
-    #                       args=[G], daemon=True)
+    bridge_thread = Thread(target=build_bridge, name="Hook Bridge",
+                           args=[G], daemon=True)
     log.info("Starting API Demon thread")
     api_thread.run()
     #bridge_thread.run()

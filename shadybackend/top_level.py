@@ -43,7 +43,9 @@ def on_exit(signum, stack) -> None:
 signal(SIGINT, on_exit)
 
 def run() -> None:
-    run_top_level({"test": 1}, "fish")
+    with open("keys") as f:
+        token = f.readline()[:-1]
+    run_top_level({"discord_token": token}, "fish")
 
 if __name__ == "__main__":
     run()

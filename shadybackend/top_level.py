@@ -31,6 +31,8 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
     api_thread.start()
     log.info("Starting API Bridge thread")
     bridge_thread.start()
+    while True:
+        ...
 
 def on_exit(signum, stack) -> None:
     """

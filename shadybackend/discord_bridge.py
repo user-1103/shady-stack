@@ -1,6 +1,6 @@
 import discord
 from typing import Any, Dict
-from request_tools import Request
+from shadybackend.request_tools import Request
 from json import loads
 import logging as log
 

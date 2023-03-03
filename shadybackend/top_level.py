@@ -7,8 +7,8 @@ from sys import exit
 from signal import signal, SIGINT
 
 # from bridge.discord_bridge import build_bridge
-from api_tools import G, HookTypes, call_hooks
-from demon import run_api_demon
+from shadybackend.api_tools import G, HookTypes, call_hooks
+from shadybackend.demon import run_api_demon
 
 DEFAULT_WEB_ROOT = "./tree"
 DEFAULT_API_ROOT = "./api.py"

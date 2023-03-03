@@ -6,7 +6,7 @@ import sys
 import importlib.util
 import logging as log
 
-from request_tools import BadRequest, Request
+from shadybackend.request_tools import BadRequest, Request
 
 # The collection of api's
 API_GROUP: Dict[str, 'API'] = dict()

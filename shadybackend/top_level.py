@@ -28,9 +28,9 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
     bridge_thread = Thread(target=build_bridge, name="Hook Bridge",
                            args=[G], daemon=True)
     log.info("Starting API Demon thread")
-    api_thread.run()
+    api_thread.start()
     log.info("Starting API Bridge thread")
-    bridge_thread.run()
+    bridge_thread.start()
 
 def on_exit(signum, stack) -> None:
     """

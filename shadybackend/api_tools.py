@@ -82,10 +82,10 @@ def call_hooks(hook: HookTypes) -> None:
     """
     Calls all hooks registered with a given name.
     """
-    log.debug(f"Calling internal hook {hook}")
     h = HOOKS.get(hook, None)
     if ((h is None) or (hook is HookTypes.WAIT)):
         return
+    log.debug(f"Calling internal hook {hook}")
     for hook_call in h:
         log.debug(f"Calling {hook_call.__name__}")
         hook_call(G)

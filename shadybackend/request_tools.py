@@ -47,7 +47,7 @@ def _check_required(tmp: Dict[str, Any]) -> List[str]:
     for k, v in tmp.items():
         if (isinstance(v, Dict)):
             ret.append(_check_required(v))
-        elif (v.endswith("_")):
+        elif (k.endswith("_")):
             ret.append(k)
     return ret
 

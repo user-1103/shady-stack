@@ -90,7 +90,7 @@ class Request():
         missed_types = _update(self.data, ret)
         if (len(missed_types)):
             err_str = [f"Misallied type for '{x[0]}':\n\tExpected"
-                       f"{x[1]}\n\tGot {x[2]}" for x in missed_types]
+                       f" {x[1]}\n\tGot {x[2]}" for x in missed_types]
             raise BadRequest("\n ".join(err_str))
         remaining_required = _check_required(ret)
         if (len(remaining_required)):

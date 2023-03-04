@@ -84,7 +84,7 @@ def call_hooks(hook: HookTypes) -> None:
     """
     log.debug(f"Calling internal hook {hook}")
     h = HOOKS.get(hook, None)
-    if (h is None):
+    if ((h is None) or (hook is HookTypes.WAIT)):
         return
     for hook_call in h:
         log.debug(f"Calling {hook_call.__name__}")

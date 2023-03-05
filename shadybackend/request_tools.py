@@ -13,7 +13,8 @@ class BaselineValue(Enum):
     NOT_FOUND = auto()
 
 
-def _update(data: Dict[str, Any], baseline: Dict[str, Any]) -> List[Tuple[str, Type, Type]]:
+def _update(data: Dict[str, Any], baseline: Dict[str, Any]
+            ) -> List[Tuple[str, Type, Type]]:
     """
     Takes baseline and updates any shared attributes with the contents of data.
     If the types do not match in the shared attributes, baseline will not be

@@ -1,3 +1,6 @@
+"""
+This is the default API demon that is used for the shadybackend.
+"""
 from pathlib import Path
 from typing import List
 from shadybackend.api_tools import G, HOOKS, HookTypes, call_hooks, process_request, collect_apis

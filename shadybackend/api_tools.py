@@ -1,10 +1,13 @@
+"""
+Module for handeling the definition and execution of the API.
+"""
 from dataclasses import dataclass
-from enum import auto, Enum
-from typing import Any, Callable, Dict, List, Union
-from pathlib import Path
-import sys
+from enum import Enum, auto
 import importlib.util
 import logging as log
+from pathlib import Path
+import sys
+from typing import Any, Callable, Dict, List, Union
 
 from shadybackend.request_tools import BadRequest, Request
 
@@ -45,13 +48,17 @@ class API():
         log = self.call_function(G, safe_data)
 
 
-def defnine_API(call_function: Callable, baseline: Dict[str, Any]) -> None:
+def defnine_API(call_function: Callable, baseline: Dict[str, Any]) -> Callable:
     """
     Warper function to define an api call.
+
+    :args call_function: The function to wrap as an API
+    :args baseline: The basline args to use
     """
     tmp = API(call_function.__name__, call_function, baseline)
     API_GROUP.update({tmp.name: tmp})
     log.debug(f"Registered {call_function.__name__} with baseline {baseline}")
+    return tmp
 
 
 class HookTypes(Enum):
@@ -68,19 +75,25 @@ class HookTypes(Enum):
     OK = auto()
 
 
-def define_hook(call_function: Callable, hook: HookTypes) -> None:
+def define_hook(call_function: Callable, hook: HookTypes) -> Callable:
     """
-    Wraper that registers a hook for the given hook type.
+    Wrapper that registers a hook for the given hook type.
+
+    :args call_function: The function to wrap
+    :args hook: The hook type to bind two
     """
     tmp = HOOKS.get(hook, list())
     tmp = [*tmp, call_function]
     HOOKS.update({hook: tmp})
     log.debug(f"Registered {call_function.__name__} for {hook}")
+    return call_function
 
 
 def call_hooks(hook: HookTypes) -> None:
     """
     Calls all hooks registered with a given name.
+
+    :args hook: The type of the hook in it.
     """
     h = HOOKS.get(hook, None)
     if ((h is None) or (hook is HookTypes.WAIT)):
@@ -94,6 +107,8 @@ def call_hooks(hook: HookTypes) -> None:
 def collect_apis(path: Path) -> None:
     """
     Loads the API objects described in the given file.
+
+    :args path: The path to load the 'api.py' from.
     """
     try:
         spec = importlib.util.spec_from_file_location("api", path)
@@ -108,6 +123,8 @@ def collect_apis(path: Path) -> None:
 def process_request(request: Request) -> None:
     """
     Takes a request, finds the necessary api and process the given data with said api.
+
+    :args request: The request object to process.
     """
     api = API_GROUP.get(request.api_call, None)
     if (api is None):

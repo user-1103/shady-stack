@@ -1,18 +1,16 @@
 """
 Serves as the entry point for runing the SHADY backend.
 """
-from shadybackend.demon import run_api_demon
-from shadybackend.api_tools import G, HookTypes, call_hooks
-from shadybackend.discord_bridge import build_bridge
-from signal import signal, SIGINT
+from pathlib import Path
+from signal import SIGINT, signal
 from sys import exit
 from threading import Thread
-from typing import Dict, Any
-from pathlib import Path
-import logging as log
+from typing import Any, Dict
 
+from shadybackend.api_tools import G, HookTypes, call_hooks
 from shadybackend.bridges import BRIDGES
-log.basicConfig(level=log.DEBUG)
+from shadybackend.demon import run_api_demon
+from shadybackend.log import log
 
 # Default location for the web tree to be located
 DEFAULT_WEB_ROOT = "./tree"

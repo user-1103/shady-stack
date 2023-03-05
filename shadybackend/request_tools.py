@@ -1,7 +1,10 @@
+"""
+A module to define the Request type.
+"""
 from dataclasses import dataclass, field
-from typing import Any, Dict, Final, Type, Tuple, List
-from json import loads
 from enum import Enum, auto
+from json import loads
+from typing import Any, Dict, Final, List, Tuple, Type
 
 # This is how we know its a SHADY request
 SHADYSTR: Final[str] = "ἐπιούσιον"
@@ -20,6 +23,10 @@ def _update(data: Dict[str, Any], baseline: Dict[str, Any]
     If the types do not match in the shared attributes, baseline will not be
     updated. In staid, a tuple of (attribute name, expected, got) will be added
     to the list that is returned.
+
+    :args data: The arguments to pass to the API
+    :args baseline: The default args of the API
+    :returns: A list of missmatched types
     """
     ret = list()
     for k, v in baseline.items():
@@ -41,8 +48,11 @@ def _update(data: Dict[str, Any], baseline: Dict[str, Any]
 
 def _check_required(tmp: Dict[str, Any]) -> List[str]:
     """
-    Checks to see if there are any REQUIRED values in tmp and returns a list of
-    attribute names if any are found.
+    Checks to see if there are any values with a name ending in _ (IE it is required)
+    in tmp and returns a list of attribute names if any are found.
+
+    :args tmp: The data struck to search through
+    :returns: A list of attributes with names that end in _
     """
     ret = list()
     for k, v in tmp.items():
@@ -81,11 +91,15 @@ class Request():
         every element in the basline, there is a matching attribute at the same
         location, name, and type in the data element. If these conditions are
         matched it will be added to the output dictionary. If the name and
-        location exists in the basline but not the data element, and the type
-        in the baseline is not REQUIRED, then the value in the basline will be
-        used as a default. If it is of the type REQUIRED, then the BadRequest
-        Error will be thrown. In all other cases, if there are extra names /
+        location exists in the basline but not the data element, and the name
+        does not end in _ (IE it is required), then the value in the basline
+        will be used as a default. If it is required, then the BadRequest Error
+        will be thrown. In all other cases, if there are extra names /
         locations in the data element, they will be silently dropped.
+
+        :args baseline: The baseline of the API to use (will be coppied) for
+        the return value.
+        :return: The sanitized baseline
         """
         ret = baseline.copy()
         missed_types = _update(self.data, ret)

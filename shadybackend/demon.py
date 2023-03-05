@@ -1,17 +1,24 @@
 """
 This is the default API demon that is used for the shadybackend.
 """
-from pathlib import Path
-from typing import List
-from shadybackend.api_tools import G, HOOKS, HookTypes, call_hooks, process_request, collect_apis
 from collections import deque
-from time import sleep
 import logging as log
+from pathlib import Path
+from time import sleep
+from typing import List
+
+from shadybackend.api_tools import (
+    G,
+    HOOKS,
+    HookTypes,
+    call_hooks,
+    collect_apis,
+    process_request,
+)
 
 G["Q"] = deque()
 
 MAX_SLEEP = 1
-
 
 def run_api_demon(root: Path, api_paths: List[Path]) -> None:
     """

@@ -20,6 +20,7 @@ G["Q"] = deque()
 
 MAX_SLEEP = 1
 
+
 def run_api_demon(root: Path, api_paths: List[Path]) -> None:
     """
     Run the app, with self restarting on recoverable errors.

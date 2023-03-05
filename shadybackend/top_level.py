@@ -41,8 +41,11 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
         exit(1)
     api_thread = Thread(target=run_api_demon, name="API Demon",
                         args=[root_path, api_path], daemon=True)
-    bridge_thread = Thread(target=bridge_class.build_bridge, name="Hook Bridge",
-                           args=[G], daemon=True)
+    bridge_thread = Thread(
+        target=bridge_class.build_bridge,
+        name="Hook Bridge",
+        args=[G],
+        daemon=True)
     log.info("Starting API Demon thread")
     api_thread.start()
     log.info("Starting API Bridge thread")
@@ -66,7 +69,7 @@ signal(SIGINT, on_exit)
 def run() -> None:
     with open("keys") as f:
         token = f.readline()[:-1]
-    run_top_level({"discord_token": token}, "fish")
+    run_top_level({"discord_token": token}, "discord")
 
 
 if __name__ == "__main__":

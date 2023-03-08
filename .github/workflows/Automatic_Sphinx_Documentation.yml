@@ -3,7 +3,7 @@ name: Automatic_Sphinx_Documentation
 on:
   push:
     branches:    
-      - master
+      - main
 
 jobs:
   build:

@@ -24,6 +24,9 @@ MAX_SLEEP = 1
 def run_api_demon(root: Path, api_paths: List[Path]) -> None:
     """
     Run the app, with self restarting on recoverable errors.
+
+    :args root: The root of the web tree.
+    :args api_paths: The paths where API definitions are found.
     """
     G["root"] = root
     G["run"] = True

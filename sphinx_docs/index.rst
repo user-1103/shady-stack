@@ -20,5 +20,5 @@ Indices and tables
 * :ref:`search`
 
 
-.. automodule:: shadybackend
+.. automodule:: shadybackend.demon
    :members:

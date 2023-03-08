@@ -22,6 +22,7 @@ jobs:
       with:
         documentation_path: './sphinx_docs'
         target_path: './docs'
+        requirements_path: './sphinx_docs/doc_recs.txt'
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

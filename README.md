@@ -1,7 +1,7 @@
 # SHADY Stack
 
 As the name implies, this is a less than kosher web stack. I developed it for
-my projects as I am in university and web hosting can be expensive. The shady stack consists of the following:   
+my projects as I am in university and web hosting can be expensive. The shady stack consists of the following:
 
 1. A **S**tatic site hosted (GitHub Pages, GitLab Pages, ECT.)
 2. Simplistic pages that communicate to the backend via a already existing web-app's Web **H**ooks (Slack, Discord, Gsuit, GitHub Actions, ECT.).

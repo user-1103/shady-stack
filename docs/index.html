@@ -1,40 +1,103 @@
-
 <!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D2D2D" />
+  
+  <title>SHADY-STACK :: Welcome to SHADY-STACK</title>
+  
+  <link rel="index" title="Index" href="genindex.html"/>
 
-    <title>Welcome to SHADY-STACK &#8212; SHADY-STACK 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pd.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <script type="text/javascript" src="_static/pd.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="_static/css/nltk_theme.css"/>
+  <link rel="stylesheet" href="_static/css/custom.css"/>
 
-  </head><body>
-    <div id="header">
-        <h1>SHADY-STACK 1.0 documentation</h1>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-        <ul>
-            <li class="nav-item nav-item-0"><a href="#">SHADY-STACK 1.0 documentation</a> &#187;
-            </li>
-        </ul>
-    </div>
+  <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+      <script type="text/javascript" src="_static/documentation_options.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/sphinx_highlight.js"></script>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-<section id="welcome-to-shady-stack">
+  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script> 
+</head>
+
+<body>
+  <div id="nltk-theme-container">
+    <header>
+      <div id="logo-container">
+          
+          <h1>
+            <a href="#">SHADY-STACK</a>
+          </h1>
+          
+      </div>
+      <div id="project-container">
+        
+        <h1>Documentation</h1>
+        
+      </div>
+
+      <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
+
+      <script type="text/javascript">
+        $("#menu-toggle").click(function() {
+          $("#menu-toggle").toggleClass("toggled");
+          $("#side-menu-container").slideToggle(300);
+        });
+      </script>
+    </header>
+
+    <div id="content-container">
+
+      <div id="side-menu-container">
+
+        <div id="search" role="search">
+        <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+            <input type="text" name="q" placeholder="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+</div>
+
+        <div id="side-menu" role="navigation">
+          
+  
+    
+  
+  
+    <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to SHADY-STACK</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#what-is-shady-stack">What Is SHADY-STACK?</a></li>
+<li><a class="reference internal" href="#what-is-this">What Is This?</a></li>
+<li><a class="reference internal" href="#is-shady-stack-right-for-you">Is SHADY-STACK Right For You?</a></li>
+<li><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
+<li><a class="reference internal" href="#what-does-shady-stack-provide">What does SHADY-STACK Provide?</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shady-backend">Shady Backend</a></li>
+<li><a class="reference internal" href="#the-default-api-demon-dad">The Default API Demon (DAD)</a><ul>
+<li><a class="reference internal" href="#defining-apis">Defining APIs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  
+
+        </div>
+
+        
+      </div>
+
+      <div id="main-content-container">
+        <div id="main-content" role="main">
+          
+  <section id="welcome-to-shady-stack">
 <h1>Welcome to SHADY-STACK<a class="headerlink" href="#welcome-to-shady-stack" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
@@ -133,25 +196,32 @@ provides the following:</p>
 model of the name <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code>.</p>
 <p>Currently the default demon and a specified bridge
 can be run as a <a class="reference external" href="https://nixos.org/">nix</a> flake with:</p>
-<p>::
-&gt; nix run github:user-1103/shady-stack - &lt;args&gt;
-&gt; # To enter a development environment use:
-&gt; nix develop github:user-1103/shady-stack</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">nix</span> <span class="n">run</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span> <span class="o">-</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="c1"># To enter a development environment use:</span>
+<span class="o">&gt;</span> <span class="n">nix</span> <span class="n">develop</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+</pre></div>
+</div>
 <p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
 installed as a <a class="reference external" href="https://python-poetry.org/docs/">poetry</a> project.</p>
-<p>::
-&gt; # Clone the repo.
-&gt; git clone <a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a>
-&gt; # Enter the repo:
-&gt; cd shady-stack
-&gt; # Install with <a class="reference external" href="https://python-poetry.org/docs/">poetry</a>
-&gt; poetry install
-&gt; # Run the backend components
-&gt; shadybackend &lt;args&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="c1"># Clone the repo.</span>
+<span class="o">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+<span class="o">&gt;</span> <span class="c1"># Enter the repo:</span>
+<span class="o">&gt;</span> <span class="n">cd</span> <span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+<span class="o">&gt;</span> <span class="c1"># Install with poetry_</span>
+<span class="o">&gt;</span> <span class="n">poetry</span> <span class="n">install</span>
+<span class="o">&gt;</span> <span class="c1"># Run the backend components</span>
+<span class="o">&gt;</span> <span class="n">shadybackend</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 <p>If you have something against <a class="reference external" href="https://python-poetry.org/docs/">poetry</a>, you can install the dependencies your
 self (found in pyproject.toml). And run:</p>
-<p>::
-&gt; python3 top_level.py &lt;args&gt;</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">top_level</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Need to set up a pip package…</p>
+</div>
 </section>
 </section>
 <section id="shady-backend">
@@ -183,60 +253,40 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 </section>
 
 
-            <div class="clearer"></div>
-          </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="#">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Welcome to SHADY-STACK</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a><ul>
-<li><a class="reference internal" href="#what-is-shady-stack">What Is SHADY-STACK?</a></li>
-<li><a class="reference internal" href="#what-is-this">What Is This?</a></li>
-<li><a class="reference internal" href="#is-shady-stack-right-for-you">Is SHADY-STACK Right For You?</a></li>
-<li><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
-<li><a class="reference internal" href="#what-does-shady-stack-provide">What does SHADY-STACK Provide?</a></li>
-<li><a class="reference internal" href="#install">Install</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#shady-backend">Shady Backend</a></li>
-<li><a class="reference internal" href="#the-default-api-demon-dad">The Default API Demon (DAD)</a><ul>
-<li><a class="reference internal" href="#defining-apis">Defining APIs</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-</ul>
 
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
     </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+<footer>
+    <div id="footer-info">
+        <ul id="build-details">
+            
+                <li class="footer-element">
+                    
+                        <a href="_sources/index.rst.txt" rel="nofollow"> source</a>
+                    
+                </li>
+            
+
+            
+
+            
+        </ul>
+
+        
+            <div id="copyright">
+                &copy; 2023, User 1103
+            </div>
+        
+
+        <div id="credit">
+            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/tomaarsen/nltk_theme">NLTK Theme</a>
         </div>
-      </div>
-      <div class="clearer"></div>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, User 1103.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
-    </div>
-  </body>
+</footer> 
+
+</div>
+
+</body>
 </html>

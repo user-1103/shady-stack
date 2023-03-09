@@ -9,7 +9,7 @@ Welcome to SHADY-STACK
 ======================
 
 What Is SHADY-STACK?
-```````````````````
+-------------------
 
 As the name implies, this is a less than kosher web stack based of of the SWAG
 stack. I developed it for my projects as I am in university and web hosting can
@@ -27,7 +27,7 @@ be expensive. The shady stack consists of the following:
 
 
 What Is This?
-`````````````
+-------------
 
 In this webpage you will find the documentation for using the SHADY-STACK.
 
@@ -41,12 +41,13 @@ In this webpage you will find the documentation for using the SHADY-STACK.
    :caption: Contents:
 
 Overview
-________
+````````
 
 Before we dive into the stack, lets talk about the abstract concepts.
 
 Is SHADY-STACK Right For You?
-`````````````````````````````
+-----------------------------
+
 There are some ups and downs to using this stack.
 
 +--------------------------------+----------------------------------+
@@ -69,7 +70,7 @@ There are some ups and downs to using this stack.
 Remember to consult your physician to see if SHADY-STACK is right for you.
 
 Design Philosophy
-````````````````
+----------------
 
 With the above in mind. The code for this project will follow these goals:
 
@@ -81,7 +82,8 @@ With the above in mind. The code for this project will follow these goals:
 (These are mostly for me to keep in mind while developing).
 
 What does SHADY-STACK Provide?
-``````````````````````````````
+------------------------------
+
 You may be asking yourself, what tooling exists for this SHADY-STACK? Well,
 while anyone is invited to build on these concepts, the SHADY-STACK repo_ 
 provides the following:
@@ -94,13 +96,13 @@ provides the following:
 Each of these parts are explained in their respective sections.
 
 Install
-```````
+-------
 
 
 
 
 Indices and tables
-------------------
+``````````````````
 
 * :ref:`genindex`
 * :ref:`modindex`

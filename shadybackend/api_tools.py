@@ -60,7 +60,8 @@ def defnine_API(baseline: Dict[str, Any]) -> Callable:
         def wrapped_func(G: Dict[str, Any], ARGS: Dict[str, Any]) -> None:
             tmp = API(call_function.__name__, call_function, baseline)
             API_GROUP.update({tmp.name: tmp})
-            log.debug( f"Registered {call_function.__name__} with baseline {baseline}")
+            log.debug(
+                f"Registered {call_function.__name__} with baseline {baseline}")
         return wrapped_func
     return wrap_func
 

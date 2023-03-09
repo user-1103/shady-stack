@@ -146,7 +146,7 @@ Shady Backend
 The ``shadybackend`` python module is it the collection of resources provided
 by the repo. The Install_ section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see 'Progmatic Use`_.
+by the repo. To progamiticly use the module, see `Progmatic Use`_.
 
 The Default API Demon (DAD)
 ```````````````````````````
@@ -163,13 +163,56 @@ Take the sample below:
 
 ..  code-block:: python
     :caption: api.py
-    :linenos:
 
     from shadybackend.api_tools import define_api
 
     @define_api({"example_arg": "default_value", "required_arg_": 1})
     def example_api(G, ARGS):
         ... # Do some api stuff
+
+Lets break down these lines one at a time:
+
+1. Here we import the wraper_ function for defining an api call.
+
+2. A little space to breath.
+
+3. We use the wrapper to define the 'baseline arguments`_ for the api.
+
+4. We declare a function that will do the actual backend processing of
+   the api. The name of the api call is determined by the name of the function
+   and is passed G_, and ARGS_.
+
+Baseline Arguments
+~~~~~~~~~~~~~~~~~~
+
+API baselines are one of the defualt security fetures of SHADY-STACK. The
+basline for an api exists as a dictionary keyed by strings representing the
+name of the argument. The values represent the default values for the argument
+if none is provided when the api is called. Before the api funciton is called,
+the types of each suplied argument will be compaired to the type of the defualt
+value. If they do not match, the api will not be called. If the name of an
+arument ends with a ``_``, it will be marked as required. If a required arg is
+missing when an api call is requested, the api will not be called. All aruments
+provided that are not found in the baseline will be silenty dropped before
+being called. Internaly the default JSON_ lib is used and as such, only types
+parsed by it can be used in the baseline.
+
+G
+~
+
+When an api is called, it has acess to a global dictionary named ``G`` al la flask_.
+The data in this variable is shared across all api calls.
+
+.. note::
+   A feature that is being concidered is to save the state of ``G`` across runs of the backend.
+   For now though, the state is purged on shutdown.
+
+
+When the user using the static front end of your site needs to do something
+dynamic, the JS in the page should call the webhook watched by the Application
+Bridge. In this call two things need to be passed the name of the api call to
+use, and the aruments to pass to the api call.
+
 
 Indices and tables
 ``````````````````

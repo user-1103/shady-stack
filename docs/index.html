@@ -138,17 +138,38 @@ can be run as a <a class="reference external" href="https://nixos.org/">nix</a> 
 &gt; # To enter a development environment use:
 &gt; nix develop github:user-1103/shady-stack</p>
 <p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
-installed as a <a href="#id1"><span class="problematic" id="id2">poetry_</span></a> project.</p>
+installed as a <a class="reference external" href="https://python-poetry.org/docs/">poetry</a> project.</p>
 <p>::
 &gt; # Clone the repo.
 &gt; git clone <a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a>
 &gt; # Enter the repo:
 &gt; cd shady-stack
-&gt; # Install with <a href="#id3"><span class="problematic" id="id4">poetry_</span></a>
-&gt; poetry install</p>
-<p>If you have something against <a href="#id5"><span class="problematic" id="id6">poetry_</span></a>, you can install the dependencies your
+&gt; # Install with <a class="reference external" href="https://python-poetry.org/docs/">poetry</a>
+&gt; poetry install
+&gt; # Run the backend components
+&gt; shadybackend &lt;args&gt;</p>
+<p>If you have something against <a class="reference external" href="https://python-poetry.org/docs/">poetry</a>, you can install the dependencies your
 self (found in pyproject.toml). And run:</p>
-<p>&gt; python3 top_level.py &lt;args&gt;</p>
+<p>::
+&gt; python3 top_level.py &lt;args&gt;</p>
+</section>
+</section>
+<section id="shady-backend">
+<h2>Shady Backend<a class="headerlink" href="#shady-backend" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> python module is it the collection of resources provided
+by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
+from the command line, subseqently allowing for acess to all the parts provided
+by the repo. To progamiticly use the module, see ‘Progmatic Use`_.</p>
+</section>
+<section id="the-default-api-demon-dad">
+<h2>The Default API Demon (DAD)<a class="headerlink" href="#the-default-api-demon-dad" title="Permalink to this heading">¶</a></h2>
+<p>DAD is an extremely bare bones Application Demon. When <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> is run,
+it will be started. When run, DAD first looks for user defined APIs to load in
+from <code class="docutils literal notranslate"><span class="pre">api.py</span></code> in the curent directory.</p>
+<section id="defining-apis">
+<h3>Defining APIs<a class="headerlink" href="#defining-apis" title="Permalink to this heading">¶</a></h3>
+<p>An <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file is a normal python file where you can define how your api.</p>
+<p>The defualt</p>
 </section>
 </section>
 <section id="indices-and-tables">
@@ -179,6 +200,11 @@ self (found in pyproject.toml). And run:</p>
 <li><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
 <li><a class="reference internal" href="#what-does-shady-stack-provide">What does SHADY-STACK Provide?</a></li>
 <li><a class="reference internal" href="#install">Install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shady-backend">Shady Backend</a></li>
+<li><a class="reference internal" href="#the-default-api-demon-dad">The Default API Demon (DAD)</a><ul>
+<li><a class="reference internal" href="#defining-apis">Defining APIs</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>

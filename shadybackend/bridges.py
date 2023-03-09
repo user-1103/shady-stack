@@ -29,6 +29,7 @@ class Bridge():
         """
         BRIDGES.update({self.name: self})
 
+
 class DiscordBridge(Bridge):
     """
     This is just the example code from:

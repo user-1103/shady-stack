@@ -7,6 +7,8 @@
 
 .. _nix: https://nixos.org/
 
+.. _poetry: https://python-poetry.org/docs/
+
 Welcome to SHADY-STACK
 ======================
 
@@ -124,11 +126,37 @@ installed as a poetry_ project.
 > cd shady-stack
 > # Install with poetry_
 > poetry install
+> # Run the backend components
+> shadybackend <args>
 
 If you have something against poetry_, you can install the dependencies your
 self (found in pyproject.toml). And run:
 
+::
 > python3 top_level.py <args>
+
+.. todo::
+   Need to set up a pip package...
+
+Shady Backend
+`````````````
+The ``shadybackend`` python module is it the collection of resources provided
+by the repo. The Install_ section outlines how to install and run the module
+from the command line, subseqently allowing for acess to all the parts provided
+by the repo. To progamiticly use the module, see 'Progmatic Use`_.
+
+The Default API Demon (DAD)
+```````````````````````````
+DAD is an extremely bare bones Application Demon. When ``shadybackend`` is run,
+it will be started. When run, DAD first looks for user defined APIs to load in
+from ``api.py`` in the curent directory.
+
+Defining APIs
+-------------
+
+An ``api.py`` file is a normal python file where you can define how your api.
+
+The defualt
 
 Indices and tables
 ``````````````````

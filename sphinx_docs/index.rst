@@ -10,6 +10,10 @@
 Welcome to SHADY-STACK
 ======================
 
+Overview
+````````
+Before we dive into the code, lets talk about the abstract concepts.
+
 What Is SHADY-STACK?
 -------------------
 
@@ -42,10 +46,6 @@ In this webpage you will find the documentation for using the SHADY-STACK.
    :maxdepth: 2
    :caption: Contents:
 
-Overview
-````````
-
-Before we dive into the stack, lets talk about the abstract concepts.
 
 Is SHADY-STACK Right For You?
 -----------------------------
@@ -91,8 +91,11 @@ while anyone is invited to build on these concepts, the SHADY-STACK repo_
 provides the following:
 
 - Bridge Applications For:
+
   - Discord
+
 - A Default API Demon
+
 - Default Hooks For Syncing Via Git
 
 Each of these parts are explained in their respective sections.
@@ -106,22 +109,20 @@ model of the name ``shadybackend``.
 Currently the default demon and a specified bridge 
 can be run as a nix_ flake with:
 
+::
 > nix run github:user-1103/shady-stack - <args>
-
-To enter a development environment use:
-
+> # To enter a development environment use:
 > nix develop github:user-1103/shady-stack
 
 For thoes of you who have yet to see the glory of nix_ the package can be
 installed as a poetry_ project.
 
-Clone the repo.
+::
+> # Clone the repo.
 > git clone https://github.com/user-1103/shady-stack
-
-Enter the repo:
+> # Enter the repo:
 > cd shady-stack
-
-Install with poetry_
+> # Install with poetry_
 > poetry install
 
 If you have something against poetry_, you can install the dependencies your

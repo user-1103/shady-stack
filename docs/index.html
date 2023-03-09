@@ -127,6 +127,24 @@ provides the following:</p>
 </section>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
+<p>The resources provided by the SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> are in the form of a python
+model of the name <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code>.</p>
+<p>Currently the default demon and a specified bridge
+can be run as a <a class="reference external" href="https://nixos.org/">nix</a> flake with:</p>
+<p>&gt; nix run github:user-1103/shady-stack - &lt;args&gt;</p>
+<p>To enter a development environment use:</p>
+<p>&gt; nix develop github:user-1103/shady-stack</p>
+<p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
+installed as a <a href="#id1"><span class="problematic" id="id2">poetry_</span></a> project.</p>
+<p>Clone the repo.
+&gt; git clone <a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a></p>
+<p>Enter the repo:
+&gt; cd shady-stack</p>
+<p>Install with <a href="#id3"><span class="problematic" id="id4">poetry_</span></a>
+&gt; poetry install</p>
+<p>If you have something against <a href="#id5"><span class="problematic" id="id6">poetry_</span></a>, you can install the dependencies your
+self (found in pyproject.toml). And run:</p>
+<p>&gt; python3 top_level.py &lt;args&gt;</p>
 <section id="indices-and-tables">
 <h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">

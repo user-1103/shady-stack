@@ -5,6 +5,8 @@
 
 .. _repo: https://github.com/user-1103/shady-stack
 
+.. _nix: https://nixos.org/
+
 Welcome to SHADY-STACK
 ======================
 
@@ -98,8 +100,34 @@ Each of these parts are explained in their respective sections.
 Install
 -------
 
+The resources provided by the SHADY-STACK repo_ are in the form of a python
+model of the name ``shadybackend``.
 
+Currently the default demon and a specified bridge 
+can be run as a nix_ flake with:
 
+> nix run github:user-1103/shady-stack - <args>
+
+To enter a development environment use:
+
+> nix develop github:user-1103/shady-stack
+
+For thoes of you who have yet to see the glory of nix_ the package can be
+installed as a poetry_ project.
+
+Clone the repo.
+> git clone https://github.com/user-1103/shady-stack
+
+Enter the repo:
+> cd shady-stack
+
+Install with poetry_
+> poetry install
+
+If you have something against poetry_, you can install the dependencies your
+self (found in pyproject.toml). And run:
+
+> python3 top_level.py <args>
 
 Indices and tables
 ``````````````````

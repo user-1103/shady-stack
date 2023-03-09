@@ -8,6 +8,7 @@ import logging as log
 from pathlib import Path
 import sys
 from typing import Any, Callable, Dict, List, Union
+from functools import wraps
 
 from shadybackend.request_tools import BadRequest, Request
 
@@ -48,18 +49,20 @@ class API():
         log = self.call_function(G, safe_data)
 
 
-def defnine_API(call_function: Callable, baseline: Dict[str, Any]) -> Callable:
+def defnine_API(baseline: Dict[str, Any]) -> Callable:
     """
     Warper function to define an api call.
 
     :args call_function: The function to wrap as an API
-    :args baseline: The basline args to use
     """
-    def wrapped_func(baseline: Dict[str, Any]) -> None:
-        tmp = API(call_function.__name__, call_function, baseline)
-        API_GROUP.update({tmp.name: tmp})
-        log.debug(f"Registered {call_function.__name__} with baseline {baseline}")
-    return wrapped_func
+    def wrap_func(call_function: Callable) -> Callable:
+        @wraps(call_function)
+        def wrapped_func(G: Dict[str, Any], ARGS: Dict[str, Any]) -> None:
+            tmp = API(call_function.__name__, call_function, baseline)
+            API_GROUP.update({tmp.name: tmp})
+            log.debug( f"Registered {call_function.__name__} with baseline {baseline}")
+        return wrapped_func
+    return wrap_func
 
 
 class HookTypes(Enum):
@@ -76,18 +79,21 @@ class HookTypes(Enum):
     OK = auto()
 
 
-def define_hook(call_function: Callable, hook: HookTypes) -> Callable:
+def define_hook(hook: HookTypes) -> Callable:
     """
     Wrapper that registers a hook for the given hook type.
 
-    :args call_function: The function to wrap
     :args hook: The hook type to bind two
     """
-    tmp = HOOKS.get(hook, list())
-    tmp = [*tmp, call_function]
-    HOOKS.update({hook: tmp})
-    log.debug(f"Registered {call_function.__name__} for {hook}")
-    return call_function
+    def wrap_func(call_function: Callable) -> Callable:
+        @wraps(call_function)
+        def wrapped_func(G: Dict[str, Any]) -> None:
+            tmp = HOOKS.get(hook, list())
+            tmp = [*tmp, call_function]
+            HOOKS.update({hook: tmp})
+            log.debug(f"Registered {call_function.__name__} for {hook}")
+        return wrapped_func
+    return wrap_func
 
 
 def call_hooks(hook: HookTypes) -> None:

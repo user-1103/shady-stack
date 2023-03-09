@@ -10,7 +10,8 @@ from shadybackend.request_tools import Request
 from json import loads
 import logging as log
 
-BRIDGES: Dict[str, 'Bridge'] = dict()
+BRIDGES: Dict[str, Any] = dict()
+
 
 @dataclass(init=True)
 class Bridge():
@@ -21,15 +22,6 @@ class Bridge():
     name: str
     # method that runs the bridge
     build_bridge: Callable
-
-    def __post_init__(self) -> None:
-        """
-        Adds the bridge to the global dict.
-        """
-        BRIDGES.update({self.name: self})
-        print("fff")
-        print(BRIDGES)
-
 
 class DiscordBridge(Bridge):
     """
@@ -61,3 +53,5 @@ class DiscordBridge(Bridge):
                 err = e
                 log.error(f"Failed to pass message to API: {e}")
         client.run(g["discord_token"])
+
+BRIDGES["discord"] = DiscordBridge

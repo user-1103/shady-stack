@@ -104,13 +104,13 @@
 <p>Before we dive into the code, lets talk about the abstract concepts.</p>
 <section id="what-is-shady-stack">
 <h3>What Is SHADY-STACK?<a class="headerlink" href="#what-is-shady-stack" title="Permalink to this heading">¶</a></h3>
-<p>As the name implies, this is a less than kosher web stack based of of the SWAG
+<p>As the name implies, this is a less than kosher web stack based of the SWAG
 stack. I developed it for my projects as I am in university and web hosting can
 be expensive. The shady stack consists of the following:</p>
 <ol class="arabic simple">
-<li><p>A <strong>S</strong> tatic site hosted (GitHub Pages, GitLab Pages, ECT.)</p></li>
+<li><p>A <strong>S</strong> tatic site hosted (GitHub Pages, GitLab Pages, etc.)</p></li>
 <li><p>Simplistic pages that communicate to the backend via a already existing web-app’s Web
-<strong>H</strong> ooks (Slack, Discord, Gsuit, GitHub Actions, ECT.).</p></li>
+<strong>H</strong> ooks (Slack, Discord, Gsuit, GitHub Actions, etc.).</p></li>
 <li><p>An <strong>A</strong> plication Bridge program that can read the calls to the webhooks and
 pass them to the next component.</p></li>
 <li><p>A Backend <strong>D</strong> eamon that acutely presses the requests from the webhooks and
@@ -142,19 +142,19 @@ each release.</p>
 <tbody>
 <tr class="row-even"><td><p>Backend is hidden behind a
 proxy of sorts.</p></td>
-<td><p>Failure or delay in the web hook
-provider means failure / delay
+<td><p>Failure or delay in the webhook
+provider means failure/delay
 in your site.</p></td>
 </tr>
 <tr class="row-odd"><td><p>It’s free!</p></td>
 <td><p>Depending on the web hook
 provider, it may be breaking a
-TOS or two</p></td>
+TOS or two.</p></td>
 </tr>
 <tr class="row-even"><td><p>It’s kinda fail-safe.
 If the backend breaks,
 the static parts of your
-site will still work</p></td>
+site will still work.</p></td>
 <td><p>The number of components between
 your frontend and backend means
 it’s slow to update.</p></td>
@@ -172,7 +172,7 @@ it’s slow to update.</p></td>
 working product so be as fast as possible.</p></li>
 <li><p>Minimize the amount of JS needed in a project - I hate writing it.</p></li>
 </ol>
-<p>(These are mostly for me to keep in mind while developing).</p>
+<p>(These are mostly for me to keep in mind while developing.)</p>
 </section>
 <section id="what-does-shady-stack-provide">
 <h3>What does SHADY-STACK Provide?<a class="headerlink" href="#what-does-shady-stack-provide" title="Permalink to this heading">¶</a></h3>
@@ -196,26 +196,26 @@ provides the following:</p>
 model of the name <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code>.</p>
 <p>Currently the default demon and a specified bridge
 can be run as a <a class="reference external" href="https://nixos.org/">nix</a> flake with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">nix</span> <span class="n">run</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span> <span class="o">-</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
-<span class="o">&gt;</span> <span class="c1"># To enter a development environment use:</span>
-<span class="o">&gt;</span> <span class="n">nix</span> <span class="n">develop</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nix</span> <span class="n">run</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span> <span class="o">-</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+<span class="c1"># To enter a development environment use:</span>
+<span class="n">nix</span> <span class="n">develop</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
 </pre></div>
 </div>
 <p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
 installed as a <a class="reference external" href="https://python-poetry.org/docs/">poetry</a> project.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="c1"># Clone the repo.</span>
-<span class="o">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
-<span class="o">&gt;</span> <span class="c1"># Enter the repo:</span>
-<span class="o">&gt;</span> <span class="n">cd</span> <span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
-<span class="o">&gt;</span> <span class="c1"># Install with poetry_</span>
-<span class="o">&gt;</span> <span class="n">poetry</span> <span class="n">install</span>
-<span class="o">&gt;</span> <span class="c1"># Run the backend components</span>
-<span class="o">&gt;</span> <span class="n">shadybackend</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the repo.</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+<span class="c1"># Enter the repo:</span>
+<span class="n">cd</span> <span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
+<span class="c1"># Install with poetry_</span>
+<span class="n">poetry</span> <span class="n">install</span>
+<span class="c1"># Run the backend components</span>
+<span class="n">shadybackend</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>If you have something against <a class="reference external" href="https://python-poetry.org/docs/">poetry</a>, you can install the dependencies your
 self (found in pyproject.toml). And run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">top_level</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">top_level</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -239,7 +239,17 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 <section id="defining-apis">
 <h3>Defining APIs<a class="headerlink" href="#defining-apis" title="Permalink to this heading">¶</a></h3>
 <p>An <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file is a normal python file where you can define how your api.</p>
-<p>The defualt</p>
+<p>Take the sample below:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">api.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">shadybackend.api_tools</span> <span class="kn">import</span> <span class="n">define_api</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="nd">@define_api</span><span class="p">({</span><span class="s2">&quot;example_arg&quot;</span><span class="p">:</span> <span class="s2">&quot;default_value&quot;</span><span class="p">,</span> <span class="s2">&quot;required_arg_&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="linenos">4</span><span class="k">def</span> <span class="nf">example_api</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ARGS</span><span class="p">):</span>
+<span class="linenos">5</span>    <span class="o">...</span> <span class="c1"># Do some api stuff</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="indices-and-tables">

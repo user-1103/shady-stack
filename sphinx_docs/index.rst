@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. _repo: https://github.com/user-1103/shady-stack
+
 Welcome to SHADY-STACK
 ======================
 
@@ -27,19 +29,16 @@ be expensive. The shady stack consists of the following:
 What Is This?
 `````````````
 
-In this webpage you will find the document for using the SHADY-STACK.
+In this webpage you will find the documentation for using the SHADY-STACK.
 
 .. note::
 
-    This sample documentation was generated on |today|, and is rebuilt weekly.
+    This sample documentation was generated on |today|, and is rebuilt with
+    each release.
 
-
-Table Of Contents
-`````````````````
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
 
 Overview
 ________
@@ -49,6 +48,55 @@ Before we dive into the stack, lets talk about the abstract concepts.
 Is SHADY-STACK Right For You?
 `````````````````````````````
 There are some ups and downs to using this stack.
+
++--------------------------------+----------------------------------+
+| Pros                           | Cons                             |
++================================+==================================+
+| Backend is hidden behind a     | Failure or delay in the web hook |
+| proxy of sorts.                | provider means failure / delay   |
+|                                | in your site.                    |
++--------------------------------+----------------------------------+
+| It's free!                     | Depending on the web hook        |
+|                                | provider, it may be breaking a   |
+|                                | TOS or two                       |
++--------------------------------+----------------------------------+
+| It's kinda fail-safe.          | The number of components between |
+| If the backend breaks,         | your frontend and backend means  |
+| the static parts of your       | it's slow to update.             |
+| site will still work           |                                  |
++--------------------------------+----------------------------------+
+
+Remember to consult your physician to see if SHADY-STACK is right for you.
+
+Design Philosophy
+````````````````
+
+With the above in mind. The code for this project will follow these goals:
+
+1. Secure defaults - It may be shady, but let's still not get pwned…
+2. Dead simple to set up - When using shady, time from project design to
+   working product so be as fast as possible.
+3. Minimize the amount of JS needed in a project - I hate writing it.
+
+(These are mostly for me to keep in mind while developing).
+
+What does SHADY-STACK Provide?
+``````````````````````````````
+You may be asking yourself, what tooling exists for this SHADY-STACK? Well,
+while anyone is invited to build on these concepts, the SHADY-STACK repo_ 
+provides the following:
+
+- Bridge Applications For:
+  - Discord
+- A Default API Demon
+- Default Hooks For Syncing Via Git
+
+Each of these parts are explained in their respective sections.
+
+Install
+```````
+
+
 
 
 Indices and tables

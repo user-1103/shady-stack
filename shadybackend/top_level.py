@@ -7,10 +7,10 @@ from sys import exit
 from threading import Thread
 from typing import Any, Dict
 
+from shadybackend.log import log
 from shadybackend.api_tools import G, HookTypes, call_hooks
 from shadybackend.bridges import BRIDGES
 from shadybackend.demon import run_api_demon
-from shadybackend.log import log
 
 # Default location for the web tree to be located
 DEFAULT_WEB_ROOT = "./tree"

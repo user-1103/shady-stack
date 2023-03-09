@@ -23,3 +23,6 @@ class Bridge():
         Adds the bridge to the global dict.
         """
         BRIDGES.update({self.name: self})
+
+# Discord Bridge
+import discord_bridge

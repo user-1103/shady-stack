@@ -36,8 +36,11 @@
             
 <section id="welcome-to-shady-stack">
 <h1>Welcome to SHADY-STACK<a class="headerlink" href="#welcome-to-shady-stack" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>Before we dive into the code, lets talk about the abstract concepts.</p>
 <section id="what-is-shady-stack">
-<h2>What Is SHADY-STACK?<a class="headerlink" href="#what-is-shady-stack" title="Permalink to this heading">¶</a></h2>
+<h3>What Is SHADY-STACK?<a class="headerlink" href="#what-is-shady-stack" title="Permalink to this heading">¶</a></h3>
 <p>As the name implies, this is a less than kosher web stack based of of the SWAG
 stack. I developed it for my projects as I am in university and web hosting can
 be expensive. The shady stack consists of the following:</p>
@@ -54,7 +57,7 @@ with the remote tree served as the static site in step 1.</p></li>
 </ol>
 </section>
 <section id="what-is-this">
-<h2>What Is This?<a class="headerlink" href="#what-is-this" title="Permalink to this heading">¶</a></h2>
+<h3>What Is This?<a class="headerlink" href="#what-is-this" title="Permalink to this heading">¶</a></h3>
 <p>In this webpage you will find the documentation for using the SHADY-STACK.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -63,13 +66,9 @@ each release.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
-<section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h3>
-<p>Before we dive into the stack, lets talk about the abstract concepts.</p>
-</section>
 </section>
 <section id="is-shady-stack-right-for-you">
-<h2>Is SHADY-STACK Right For You?<a class="headerlink" href="#is-shady-stack-right-for-you" title="Permalink to this heading">¶</a></h2>
+<h3>Is SHADY-STACK Right For You?<a class="headerlink" href="#is-shady-stack-right-for-you" title="Permalink to this heading">¶</a></h3>
 <p>There are some ups and downs to using this stack.</p>
 <table class="docutils align-default">
 <thead>
@@ -102,7 +101,7 @@ it’s slow to update.</p></td>
 <p>Remember to consult your physician to see if SHADY-STACK is right for you.</p>
 </section>
 <section id="design-philosophy">
-<h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Permalink to this heading">¶</a></h2>
+<h3>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Permalink to this heading">¶</a></h3>
 <p>With the above in mind. The code for this project will follow these goals:</p>
 <ol class="arabic simple">
 <li><p>Secure defaults - It may be shady, but let’s still not get pwned…</p></li>
@@ -113,46 +112,52 @@ working product so be as fast as possible.</p></li>
 <p>(These are mostly for me to keep in mind while developing).</p>
 </section>
 <section id="what-does-shady-stack-provide">
-<h2>What does SHADY-STACK Provide?<a class="headerlink" href="#what-does-shady-stack-provide" title="Permalink to this heading">¶</a></h2>
+<h3>What does SHADY-STACK Provide?<a class="headerlink" href="#what-does-shady-stack-provide" title="Permalink to this heading">¶</a></h3>
 <p>You may be asking yourself, what tooling exists for this SHADY-STACK? Well,
 while anyone is invited to build on these concepts, the SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a>
 provides the following:</p>
 <ul class="simple">
-<li><p>Bridge Applications For:
-- Discord</p></li>
+<li><p>Bridge Applications For:</p>
+<ul>
+<li><p>Discord</p></li>
+</ul>
+</li>
 <li><p>A Default API Demon</p></li>
 <li><p>Default Hooks For Syncing Via Git</p></li>
 </ul>
 <p>Each of these parts are explained in their respective sections.</p>
 </section>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h3>
 <p>The resources provided by the SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> are in the form of a python
 model of the name <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code>.</p>
 <p>Currently the default demon and a specified bridge
 can be run as a <a class="reference external" href="https://nixos.org/">nix</a> flake with:</p>
-<p>&gt; nix run github:user-1103/shady-stack - &lt;args&gt;</p>
-<p>To enter a development environment use:</p>
-<p>&gt; nix develop github:user-1103/shady-stack</p>
+<p>::
+&gt; nix run github:user-1103/shady-stack - &lt;args&gt;
+&gt; # To enter a development environment use:
+&gt; nix develop github:user-1103/shady-stack</p>
 <p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
 installed as a <a href="#id1"><span class="problematic" id="id2">poetry_</span></a> project.</p>
-<p>Clone the repo.
-&gt; git clone <a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a></p>
-<p>Enter the repo:
-&gt; cd shady-stack</p>
-<p>Install with <a href="#id3"><span class="problematic" id="id4">poetry_</span></a>
+<p>::
+&gt; # Clone the repo.
+&gt; git clone <a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a>
+&gt; # Enter the repo:
+&gt; cd shady-stack
+&gt; # Install with <a href="#id3"><span class="problematic" id="id4">poetry_</span></a>
 &gt; poetry install</p>
 <p>If you have something against <a href="#id5"><span class="problematic" id="id6">poetry_</span></a>, you can install the dependencies your
 self (found in pyproject.toml). And run:</p>
 <p>&gt; python3 top_level.py &lt;args&gt;</p>
+</section>
+</section>
 <section id="indices-and-tables">
-<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h3>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</section>
 </section>
 </section>
 
@@ -167,18 +172,16 @@ self (found in pyproject.toml). And run:</p>
     <h3><a href="#">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Welcome to SHADY-STACK</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
 <li><a class="reference internal" href="#what-is-shady-stack">What Is SHADY-STACK?</a></li>
-<li><a class="reference internal" href="#what-is-this">What Is This?</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#what-is-this">What Is This?</a></li>
 <li><a class="reference internal" href="#is-shady-stack-right-for-you">Is SHADY-STACK Right For You?</a></li>
 <li><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
 <li><a class="reference internal" href="#what-does-shady-stack-provide">What does SHADY-STACK Provide?</a></li>
-<li><a class="reference internal" href="#install">Install</a><ul>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 </ul>

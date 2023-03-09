@@ -39,10 +39,11 @@ def run_top_level(start_g: Dict[str, Any], bridge: str,
     if (bridge_class is None):
         log.fatal(f"Bridge '{bridge}' not found.")
         exit(1)
+    bridge_object = bridge_class()
     api_thread = Thread(target=run_api_demon, name="API Demon",
                         args=[root_path, api_path], daemon=True)
     bridge_thread = Thread(
-        target=bridge_class.build_bridge,
+        target=bridge_object.build_bridge,
         name="Hook Bridge",
         args=[G],
         daemon=True)

@@ -79,7 +79,11 @@
 </li>
 <li><a class="reference internal" href="#shady-backend">Shady Backend</a></li>
 <li><a class="reference internal" href="#the-default-api-demon-dad">The Default API Demon (DAD)</a><ul>
-<li><a class="reference internal" href="#defining-apis">Defining APIs</a></li>
+<li><a class="reference internal" href="#defining-apis">Defining APIs</a><ul>
+<li><a class="reference internal" href="#baseline-arguments">Baseline Arguments</a></li>
+<li><a class="reference internal" href="#g">G</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -229,7 +233,7 @@ self (found in pyproject.toml). And run:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> python module is it the collection of resources provided
 by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see ‘Progmatic Use`_.</p>
+by the repo. To progamiticly use the module, see <a href="#id2"><span class="problematic" id="id3">`Progmatic Use`_</span></a>.</p>
 </section>
 <section id="the-default-api-demon-dad">
 <h2>The Default API Demon (DAD)<a class="headerlink" href="#the-default-api-demon-dad" title="Permalink to this heading">¶</a></h2>
@@ -242,14 +246,51 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 <p>Take the sample below:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">api.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">shadybackend.api_tools</span> <span class="kn">import</span> <span class="n">define_api</span>
-<span class="linenos">2</span>
-<span class="linenos">3</span><span class="nd">@define_api</span><span class="p">({</span><span class="s2">&quot;example_arg&quot;</span><span class="p">:</span> <span class="s2">&quot;default_value&quot;</span><span class="p">,</span> <span class="s2">&quot;required_arg_&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="linenos">4</span><span class="k">def</span> <span class="nf">example_api</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ARGS</span><span class="p">):</span>
-<span class="linenos">5</span>    <span class="o">...</span> <span class="c1"># Do some api stuff</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shadybackend.api_tools</span> <span class="kn">import</span> <span class="n">define_api</span>
+
+<span class="nd">@define_api</span><span class="p">({</span><span class="s2">&quot;example_arg&quot;</span><span class="p">:</span> <span class="s2">&quot;default_value&quot;</span><span class="p">,</span> <span class="s2">&quot;required_arg_&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="k">def</span> <span class="nf">example_api</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ARGS</span><span class="p">):</span>
+    <span class="o">...</span> <span class="c1"># Do some api stuff</span>
 </pre></div>
 </div>
 </div>
+<p>Lets break down these lines one at a time:</p>
+<ol class="arabic simple">
+<li><p>Here we import the <a href="#id4"><span class="problematic" id="id5">wraper_</span></a> function for defining an api call.</p></li>
+<li><p>A little space to breath.</p></li>
+<li><p>We use the wrapper to define the ‘baseline arguments`_ for the api.</p></li>
+<li><p>We declare a function that will do the actual backend processing of
+the api. The name of the api call is determined by the name of the function
+and is passed <a class="reference internal" href="#g">G</a>, and <a href="#id6"><span class="problematic" id="id7">ARGS_</span></a>.</p></li>
+</ol>
+<section id="baseline-arguments">
+<h4>Baseline Arguments<a class="headerlink" href="#baseline-arguments" title="Permalink to this heading">¶</a></h4>
+<p>API baselines are one of the defualt security fetures of SHADY-STACK. The
+basline for an api exists as a dictionary keyed by strings representing the
+name of the argument. The values represent the default values for the argument
+if none is provided when the api is called. Before the api funciton is called,
+the types of each suplied argument will be compaired to the type of the defualt
+value. If they do not match, the api will not be called. If the name of an
+arument ends with a <code class="docutils literal notranslate"><span class="pre">_</span></code>, it will be marked as required. If a required arg is
+missing when an api call is requested, the api will not be called. All aruments
+provided that are not found in the baseline will be silenty dropped before
+being called. Internaly the default <a href="#id8"><span class="problematic" id="id9">JSON_</span></a> lib is used and as such, only types
+parsed by it can be used in the baseline.</p>
+</section>
+<section id="g">
+<h4>G<a class="headerlink" href="#g" title="Permalink to this heading">¶</a></h4>
+<p>When an api is called, it has acess to a global dictionary named <code class="docutils literal notranslate"><span class="pre">G</span></code> al la <a href="#id10"><span class="problematic" id="id11">flask_</span></a>.
+The data in this variable is shared across all api calls.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A feature that is being concidered is to save the state of <code class="docutils literal notranslate"><span class="pre">G</span></code> across runs of the backend.
+For now though, the state is purged on shutdown.</p>
+</div>
+<p>When the user using the static front end of your site needs to do something
+dynamic, the JS in the page should call the webhook watched by the Application
+Bridge. In this call two things need to be passed the name of the api call to
+use, and the aruments to pass to the api call.</p>
+</section>
 </section>
 </section>
 <section id="indices-and-tables">

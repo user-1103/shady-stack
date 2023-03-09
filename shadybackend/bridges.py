@@ -12,8 +12,7 @@ import logging as log
 
 BRIDGES: Dict[str, 'Bridge'] = dict()
 
-
-@dataclass
+@dataclass(init=True)
 class Bridge():
     """
     Generic form of a bridge to be subclassed.
@@ -28,6 +27,8 @@ class Bridge():
         Adds the bridge to the global dict.
         """
         BRIDGES.update({self.name: self})
+        print("fff")
+        print(BRIDGES)
 
 
 class DiscordBridge(Bridge):

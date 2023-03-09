@@ -55,10 +55,11 @@ def defnine_API(call_function: Callable, baseline: Dict[str, Any]) -> Callable:
     :args call_function: The function to wrap as an API
     :args baseline: The basline args to use
     """
-    tmp = API(call_function.__name__, call_function, baseline)
-    API_GROUP.update({tmp.name: tmp})
-    log.debug(f"Registered {call_function.__name__} with baseline {baseline}")
-    return tmp
+    def wrapped_func(baseline: Dict[str, Any]) -> None:
+        tmp = API(call_function.__name__, call_function, baseline)
+        API_GROUP.update({tmp.name: tmp})
+        log.debug(f"Registered {call_function.__name__} with baseline {baseline}")
+    return wrapped_func
 
 
 class HookTypes(Enum):

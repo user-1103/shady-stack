@@ -12,6 +12,7 @@ import logging as log
 
 BRIDGES: Dict[str, Any] = dict()
 
+
 class DiscordBridge():
     """
     This is just the example code from:
@@ -43,5 +44,6 @@ class DiscordBridge():
                 err = e
                 log.error(f"Failed to pass message to API: {e}")
         client.run(g["discord_token"])
+
 
 BRIDGES["discord"] = DiscordBridge

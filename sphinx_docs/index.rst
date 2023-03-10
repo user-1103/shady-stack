@@ -201,11 +201,16 @@ G
 ~
 
 When an api is called, it has acess to a global dictionary named ``G`` al la flask_.
-The data in this variable is shared across all api calls.
+The data in this variable is shared across all api calls, hooks_, and Application Bridges.
 
 .. note::
    A feature that is being concidered is to save the state of ``G`` across runs of the backend.
    For now though, the state is purged on shutdown.
+
+ARGS
+~~~~
+After the above parsing is done to the aruments provided to the webhook, they
+are then provided to the API funciton via the ARGS_ variable.
 
 
 When the user using the static front end of your site needs to do something

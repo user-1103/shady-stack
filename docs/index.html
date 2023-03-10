@@ -85,6 +85,7 @@
 <li><a class="reference internal" href="#args">ARGS</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#hooks">HOOKS</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -234,7 +235,7 @@ self (found in pyproject.toml). And run:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> python module is it the collection of resources provided
 by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see <a href="#id2"><span class="problematic" id="id3">`Progmatic Use`_</span></a>.</p>
+by the repo. To progamiticly use the module, see <a href="#id3"><span class="problematic" id="id4">`Progmatic Use`_</span></a>.</p>
 </section>
 <section id="the-default-api-demon-dad">
 <h2>The Default API Demon (DAD)<a class="headerlink" href="#the-default-api-demon-dad" title="Permalink to this heading">¶</a></h2>
@@ -257,9 +258,9 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 </div>
 <p>Lets break down these lines one at a time:</p>
 <ol class="arabic simple">
-<li><p>Here we import the <a href="#id4"><span class="problematic" id="id5">wraper_</span></a> function for defining an api call.</p></li>
+<li><p>Here we import the <a class="reference external" href="https://www.geeksforgeeks.org/function-wrappers-in-python/">wraper</a> function for defining an api call.</p></li>
 <li><p>A little space to breath.</p></li>
-<li><p>We use the wrapper to define the ‘baseline arguments`_ for the api.</p></li>
+<li><p>We use the wrapper to define the <a class="reference internal" href="#baseline-arguments">baseline arguments</a> for the api.</p></li>
 <li><p>We declare a function that will do the actual backend processing of
 the api. The name of the api call is determined by the name of the function
 and is passed <a class="reference internal" href="#g">G</a>, and <a class="reference internal" href="#args">ARGS</a>.</p></li>
@@ -275,28 +276,115 @@ value. If they do not match, the api will not be called. If the name of an
 arument ends with a <code class="docutils literal notranslate"><span class="pre">_</span></code>, it will be marked as required. If a required arg is
 missing when an api call is requested, the api will not be called. All aruments
 provided that are not found in the baseline will be silenty dropped before
-being called. Internaly the default <a href="#id6"><span class="problematic" id="id7">JSON_</span></a> lib is used and as such, only types
+being called. Internaly the default <a class="reference external" href="https://docs.python.org/3/library/json.html">JSON</a> lib is used and as such, only types
 parsed by it can be used in the baseline.</p>
 </section>
 <section id="g">
 <h4>G<a class="headerlink" href="#g" title="Permalink to this heading">¶</a></h4>
-<p>When an api is called, it has acess to a global dictionary named <code class="docutils literal notranslate"><span class="pre">G</span></code> al la <a href="#id8"><span class="problematic" id="id9">flask_</span></a>.
-The data in this variable is shared across all api calls, <a href="#id10"><span class="problematic" id="id11">hooks_</span></a>, and Application Bridges.</p>
+<p>When an api is called, it has acess to a global dictionary named <code class="docutils literal notranslate"><span class="pre">G</span></code> al la <a class="reference external" href="https://flask.palletsprojects.com/en/2.2.x/">flask</a>.
+The data in this variable is shared across all api calls, <a class="reference internal" href="#hooks">hooks</a>, and Application Bridges.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A feature that is being concidered is to save the state of <code class="docutils literal notranslate"><span class="pre">G</span></code> across runs of the backend.
 For now though, the state is purged on shutdown.</p>
+</div>
+<p>By default, DAD sets the folowing <a class="reference internal" href="#g">G</a> variables:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>root</p></td>
+<td><p>The path to the location of the local web root.</p></td>
+</tr>
+<tr class="row-odd"><td><p>run</p></td>
+<td><p>Can be set to false to shutdown the demon.</p></td>
+</tr>
+<tr class="row-even"><td><p>Q</p></td>
+<td><p>The queue of Request objects to process.</p></td>
+</tr>
+<tr class="row-odd"><td><p>req</p></td>
+<td><p>The curent request being processed. Usefull for
+error handeling.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#id5"><span class="problematic" id="id6">`Default bridges`_</span></a> may define further values.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is probably best to not touch <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">req</span></code> unless you know what you are doing.
+The Requests stored in these variables are not sanitized.</p>
 </div>
 </section>
 <section id="args">
 <h4>ARGS<a class="headerlink" href="#args" title="Permalink to this heading">¶</a></h4>
 <p>After the above parsing is done to the aruments provided to the webhook, they
 are then provided to the API funciton via the <a class="reference internal" href="#args">ARGS</a> variable.</p>
+</section>
+</section>
+<section id="hooks">
+<h3>HOOKS<a class="headerlink" href="#hooks" title="Permalink to this heading">¶</a></h3>
+<p>DAD provides a way to ensure certian actions happen when ceritan events happen
+during the execution of DAD. Take the following adition to our <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">api.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shadybackend.api_tools</span> <span class="kn">import</span> <span class="n">define_api</span><span class="p">,</span> <span class="n">define_hook</span><span class="p">,</span> <span class="n">HookTypes</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="nd">@define_api</span><span class="p">({</span><span class="s2">&quot;example_arg&quot;</span><span class="p">:</span> <span class="s2">&quot;default_value&quot;</span><span class="p">,</span> <span class="s2">&quot;required_arg_&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="k">def</span> <span class="nf">example_api</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ARGS</span><span class="p">):</span>
+    <span class="o">...</span> <span class="c1"># Do some api stuff</span>
+
+<span class="nd">@define_hook</span><span class="p">(</span><span class="n">HookTypes</span><span class="o">.</span><span class="n">ERR</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">log_error</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;error.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to process request @</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This trivial example writes a log file everytime DAD fails to process a
+request. The available events you can hook are:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Runs On…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HookTypes.ERR</p></td>
+<td><p>…a failure in processing a request.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HookTypes.INIT</p></td>
+<td><p>…demon startup.</p></td>
+</tr>
+<tr class="row-even"><td><p>HookTypes.PRE</p></td>
+<td><p>…the start of processing a request</p></td>
+</tr>
+<tr class="row-odd"><td><p>HookTypes.OK</p></td>
+<td><p>…the successful processing of a request</p></td>
+</tr>
+<tr class="row-even"><td><p>HookTypes.POST</p></td>
+<td><p>…the end of the processing of a request</p></td>
+</tr>
+<tr class="row-odd"><td><p>HookTypes.WAIT</p></td>
+<td><p>…demon safe exit.</p></td>
+</tr>
+<tr class="row-even"><td><p>HookTypes.FATAL</p></td>
+<td><p>…demon hitting an unsaveable error.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">OK</span></code> hook to sync your local copy of the site to the
+remote static site.</p>
+</div>
 <p>When the user using the static front end of your site needs to do something
 dynamic, the JS in the page should call the webhook watched by the Application
 Bridge. In this call two things need to be passed the name of the api call to
 use, and the aruments to pass to the api call.</p>
-</section>
 </section>
 </section>
 <section id="indices-and-tables">

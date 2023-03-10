@@ -9,6 +9,12 @@
 
 .. _poetry: https://python-poetry.org/docs/
 
+.. _JSON: https://docs.python.org/3/library/json.html
+
+.. _flask: https://flask.palletsprojects.com/en/2.2.x/
+
+.. _wraper:  https://www.geeksforgeeks.org/function-wrappers-in-python/
+
 Welcome to SHADY-STACK
 ======================
 
@@ -176,7 +182,7 @@ Lets break down these lines one at a time:
 
 2. A little space to breath.
 
-3. We use the wrapper to define the 'baseline arguments`_ for the api.
+3. We use the wrapper to define the `baseline arguments`_ for the api.
 
 4. We declare a function that will do the actual backend processing of
    the api. The name of the api call is determined by the name of the function
@@ -207,10 +213,80 @@ The data in this variable is shared across all api calls, hooks_, and Applicatio
    A feature that is being concidered is to save the state of ``G`` across runs of the backend.
    For now though, the state is purged on shutdown.
 
+By default, DAD sets the folowing G_ variables:
+
++-----------------+--------------------------------------------------+
+| Name            | Description                                      | 
++=================+==================================================+
+| root            | The path to the location of the local web root.  |
++-----------------+--------------------------------------------------+
+| run             | Can be set to false to shutdown the demon.       |
++-----------------+--------------------------------------------------+
+| Q               | The queue of Request objects to process.         |
++-----------------+--------------------------------------------------+
+| req             | The curent request being processed. Usefull for  |
+|                 | error handeling.                                 |
++-----------------+--------------------------------------------------+
+
+`Default bridges`_ may define further values.
+
+.. warning::
+   It is probably best to not touch ``Q`` or ``req`` unless you know what you are doing.
+   The Requests stored in these variables are not sanitized.
+
 ARGS
 ~~~~
 After the above parsing is done to the aruments provided to the webhook, they
 are then provided to the API funciton via the ARGS_ variable.
+
+HOOKS
+-----
+
+DAD provides a way to ensure certian actions happen when ceritan events happen
+during the execution of DAD. Take the following adition to our ``api.py`` file:
+
+..  code-block:: python
+    :caption: api.py
+
+    from shadybackend.api_tools import define_api, define_hook, HookTypes
+    import time
+
+    @define_api({"example_arg": "default_value", "required_arg_": 1})
+    def example_api(G, ARGS):
+        ... # Do some api stuff
+
+    @define_hook(HookTypes.ERR)
+    def log_error(G):
+        with open("error.log", "a") as f:
+            f.write(f"Failed to process request @{time.time()}\n")
+
+This trivial example writes a log file everytime DAD fails to process a
+request. The available events you can hook are:
+
++-----------------+--------------------------------------------------+
+| Name            |   Runs On...                                     |
++=================+==================================================+
+| HookTypes.ERR   |   ...a failure in processing a request.          |
++-----------------+--------------------------------------------------+
+| HookTypes.INIT  |   ...demon startup.                              |
++-----------------+--------------------------------------------------+
+| HookTypes.PRE   |   ...the start of processing a request           |
++-----------------+--------------------------------------------------+
+| HookTypes.OK    |   ...the successful processing of a request      |
++-----------------+--------------------------------------------------+
+| HookTypes.POST  |   ...the end of the processing of a request      |
++-----------------+--------------------------------------------------+
+| HookTypes.WAIT  |   ...demon safe exit.                            |
++-----------------+--------------------------------------------------+
+| HookTypes.FATAL |   ...demon hitting an unsaveable error.          |
++-----------------+--------------------------------------------------+
+
+.. hint::
+   You can use the ``OK`` hook to sync your local copy of the site to the
+   remote static site.
+
+
+
 
 
 When the user using the static front end of your site needs to do something

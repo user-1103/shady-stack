@@ -38,6 +38,7 @@ def run_api_demon(root: Path, api_paths: List[Path]) -> None:
             if (len(G["Q"])):
                 call_hooks(HookTypes.PRE)
                 req = G["Q"].pop()
+                G["req"] = req
                 try:
                     process_request(req)
                 except Exception as e:

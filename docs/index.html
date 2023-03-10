@@ -88,6 +88,11 @@
 <li><a class="reference internal" href="#hooks">HOOKS</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#default-bridges">Default Bridges</a><ul>
+<li><a class="reference internal" href="#call-structure">Call Structure</a></li>
+<li><a class="reference internal" href="#discord-bridge">Discord Bridge</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -311,7 +316,7 @@ error handeling.</p></td>
 </tr>
 </tbody>
 </table>
-<p><a href="#id5"><span class="problematic" id="id6">`Default bridges`_</span></a> may define further values.</p>
+<p><a class="reference internal" href="#default-bridges">Default bridges</a> may define further values.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It is probably best to not touch <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">req</span></code> unless you know what you are doing.
@@ -368,11 +373,14 @@ request. The available events you can hook are:</p>
 <tr class="row-even"><td><p>HookTypes.POST</p></td>
 <td><p>…the end of the processing of a request</p></td>
 </tr>
-<tr class="row-odd"><td><p>HookTypes.WAIT</p></td>
+<tr class="row-odd"><td><p>HookTypes.EXIT</p></td>
 <td><p>…demon safe exit.</p></td>
 </tr>
 <tr class="row-even"><td><p>HookTypes.FATAL</p></td>
 <td><p>…demon hitting an unsaveable error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HookTypes.WAIT</p></td>
+<td><p>…demon idle.</p></td>
 </tr>
 </tbody>
 </table>
@@ -381,10 +389,39 @@ request. The available events you can hook are:</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">OK</span></code> hook to sync your local copy of the site to the
 remote static site.</p>
 </div>
+</section>
+</section>
+<section id="default-bridges">
+<h2>Default Bridges<a class="headerlink" href="#default-bridges" title="Permalink to this heading">¶</a></h2>
+<p>The SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> provides a bunch of defualt bridges that can be activated
+with DAD.</p>
+<section id="call-structure">
+<h3>Call Structure<a class="headerlink" href="#call-structure" title="Permalink to this heading">¶</a></h3>
 <p>When the user using the static front end of your site needs to do something
 dynamic, the JS in the page should call the webhook watched by the Application
 Bridge. In this call two things need to be passed the name of the api call to
-use, and the aruments to pass to the api call.</p>
+use, and the aruments to pass to the api call. The bridges defined in the repo
+expects the folowing data feilds as a minimum:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>api_call</p></td>
+<td><p>The name of the api to use for the request.</p></td>
+</tr>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>A dictionary of args to pass to the request.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="discord-bridge">
+<h3>Discord Bridge<a class="headerlink" href="#discord-bridge" title="Permalink to this heading">¶</a></h3>
+<p>The discord bridge can be used by requesting the <code class="docutils literal notranslate"><span class="pre">discord</span></code> from DAD. To use
+the bridge you must also set <code class="docutils literal notranslate"><span class="pre">discord_token</span></code> to.</p>
 </section>
 </section>
 <section id="indices-and-tables">

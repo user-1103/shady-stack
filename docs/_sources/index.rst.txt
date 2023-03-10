@@ -39,7 +39,6 @@ be expensive. The shady stack consists of the following:
 5. An application that regularly s **Y** ncs the local tree
    with the remote tree served as the static site in step 1.
 
-
 What Is This?
 -------------
 
@@ -276,9 +275,11 @@ request. The available events you can hook are:
 +-----------------+--------------------------------------------------+
 | HookTypes.POST  |   ...the end of the processing of a request      |
 +-----------------+--------------------------------------------------+
-| HookTypes.WAIT  |   ...demon safe exit.                            |
+| HookTypes.EXIT  |   ...demon safe exit.                            |
 +-----------------+--------------------------------------------------+
 | HookTypes.FATAL |   ...demon hitting an unsaveable error.          |
++-----------------+--------------------------------------------------+
+| HookTypes.WAIT  |   ...demon idle.                                 |
 +-----------------+--------------------------------------------------+
 
 .. hint::
@@ -286,13 +287,34 @@ request. The available events you can hook are:
    remote static site.
 
 
+Default Bridges
+```````````````
 
+The SHADY-STACK repo_ provides a bunch of defualt bridges that can be activated
+with DAD.
 
+Call Structure
+--------------
 
 When the user using the static front end of your site needs to do something
 dynamic, the JS in the page should call the webhook watched by the Application
 Bridge. In this call two things need to be passed the name of the api call to
-use, and the aruments to pass to the api call.
+use, and the aruments to pass to the api call. The bridges defined in the repo
+expects the folowing data feilds as a minimum:
+
++-----------------+--------------------------------------------------+
+| Name            | Description                                      | 
++=================+==================================================+
+| api_call        | The name of the api to use for the request.      |
++-----------------+--------------------------------------------------+
+| data            | A dictionary of args to pass to the request.     |
++-----------------+--------------------------------------------------+
+
+Discord Bridge
+-------------
+
+The discord bridge can be used by requesting the ``discord`` from DAD. To use
+the bridge you must also set ``discord_token`` to.
 
 
 Indices and tables

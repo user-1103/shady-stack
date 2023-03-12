@@ -15,6 +15,15 @@
 
 .. _wraper:  https://www.geeksforgeeks.org/function-wrappers-in-python/
 
+.. _`register a new bot`: https://discordpy.readthedocs.io/en/stable/discord.html
+
+.. _`new discord server`: https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server-
+
+.. _`webhook`: https://support.discord.com/hc/en-us/articles/360045093012-Server-Integrations-Page
+
+.. _`message content intent`: https://discord.com/developers/docs/topics/gateway#message-content-intent
+
+
 Welcome to SHADY-STACK
 ======================
 
@@ -148,13 +157,37 @@ self (found in pyproject.toml). And run:
 
 Shady Backend
 `````````````
+
 The ``shadybackend`` python module is it the collection of resources provided
 by the repo. The Install_ section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
 by the repo. To progamiticly use the module, see `Progmatic Use`_.
 
+CLI Args
+--------
+
+No matter how you call shady, the following is roughly how it will be used.
+
+::
+
+> <command to call shady> '<name of bridge>' '<JSON describing the initial G value>'
+
+See `default bridges`_ and `G`_ for more info.
+
+
+Optional Args
+-------------
+
+Additionally, one may use the following:
+
+-h, --help     show this help message and exit
+-v, --verbose  Be chatty.
+--tree TREE    Provide the location of the web root.
+--api API      Provide the location of the api.py file.
+
 The Default API Demon (DAD)
 ```````````````````````````
+
 DAD is an extremely bare bones Application Demon. When ``shadybackend`` is run,
 it will be started. When run, DAD first looks for user defined APIs to load in
 from ``api.py`` in the curent directory.
@@ -311,11 +344,36 @@ expects the folowing data feilds as a minimum:
 +-----------------+--------------------------------------------------+
 
 Discord Bridge
--------------
+--------------
 
-The discord bridge can be used by requesting the ``discord`` from DAD. To use
-the bridge you must also set ``discord_token`` to.
+The discord bridge can be used by requesting the ``discord`` from DAD. First
+though, you need to setup a `new discord server`_, a `webhook`_ for that server
+(save this for latter), and then `register a new bot`_.
 
+.. warning::
+   As of the most recent discord API update, you will need to give your bot the
+   `message content intent`_ for shady to work.
+
+When you register a new bot, you will get a token that will allow the discord
+bridge to act as your newly created bot. You will need to pass this token
+through the G variable like so:
+
+::
+
+> python3 shadybackend "discord" '{"discord_token": "<bot token>"}'
+
+This tells shady backend to start DAD with the discord bridge, and to connect
+to the bot token provided. You can test your webhook with the folowing commands:
+
+::
+
+> export WEBHOOK_URL="<your web hook url>"
+> export SHADY_MSG='{"api_call":"example_api_call","data":{"example_arg":"foobar"}}'
+> export WEBHOOK_MSG="{\"username\": \"test\", \"content\": \"$SHADY_MSG\"}"
+> curl -H "Content-Type: application/json" -d $WEBHOOK_MSG $WEBHOOK_URL
+
+.. note::
+   Note how the shady `Call Structure`_ is wrapped by the the discord call structure.
 
 Indices and tables
 ``````````````````

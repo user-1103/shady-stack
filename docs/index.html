@@ -77,7 +77,11 @@
 <li><a class="reference internal" href="#install">Install</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#shady-backend">Shady Backend</a></li>
+<li><a class="reference internal" href="#shady-backend">Shady Backend</a><ul>
+<li><a class="reference internal" href="#cli-args">CLI Args</a></li>
+<li><a class="reference internal" href="#optional-args">Optional Args</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#the-default-api-demon-dad">The Default API Demon (DAD)</a><ul>
 <li><a class="reference internal" href="#defining-apis">Defining APIs</a><ul>
 <li><a class="reference internal" href="#baseline-arguments">Baseline Arguments</a></li>
@@ -135,7 +139,7 @@ with the remote tree served as the static site in step 1.</p></li>
 <p>In this webpage you will find the documentation for using the SHADY-STACK.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This sample documentation was generated on Mar 10, 2023, and is rebuilt with
+<p>This sample documentation was generated on Mar 12, 2023, and is rebuilt with
 each release.</p>
 </div>
 <div class="toctree-wrapper compound">
@@ -241,6 +245,32 @@ self (found in pyproject.toml). And run:</p>
 by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
 by the repo. To progamiticly use the module, see <a href="#id3"><span class="problematic" id="id4">`Progmatic Use`_</span></a>.</p>
+<section id="cli-args">
+<h3>CLI Args<a class="headerlink" href="#cli-args" title="Permalink to this heading">¶</a></h3>
+<p>No matter how you call shady, the following is roughly how it will be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">command</span> <span class="n">to</span> <span class="n">call</span> <span class="n">shady</span><span class="o">&gt;</span> <span class="s1">&#39;&lt;name of bridge&gt;&#39;</span> <span class="s1">&#39;&lt;JSON describing the initial G value&gt;&#39;</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="#default-bridges">default bridges</a> and <a class="reference internal" href="#g">G</a> for more info.</p>
+</section>
+<section id="optional-args">
+<h3>Optional Args<a class="headerlink" href="#optional-args" title="Permalink to this heading">¶</a></h3>
+<p>Additionally, one may use the following:</p>
+<dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></dt>
+<dd><p>Be chatty.</p>
+</dd>
+<dt><kbd><span class="option">--tree <var>TREE</var></span></kbd></dt>
+<dd><p>Provide the location of the web root.</p>
+</dd>
+<dt><kbd><span class="option">--api <var>API</var></span></kbd></dt>
+<dd><p>Provide the location of the api.py file.</p>
+</dd>
+</dl>
+</section>
 </section>
 <section id="the-default-api-demon-dad">
 <h2>The Default API Demon (DAD)<a class="headerlink" href="#the-default-api-demon-dad" title="Permalink to this heading">¶</a></h2>
@@ -420,8 +450,32 @@ expects the folowing data feilds as a minimum:</p>
 </section>
 <section id="discord-bridge">
 <h3>Discord Bridge<a class="headerlink" href="#discord-bridge" title="Permalink to this heading">¶</a></h3>
-<p>The discord bridge can be used by requesting the <code class="docutils literal notranslate"><span class="pre">discord</span></code> from DAD. To use
-the bridge you must also set <code class="docutils literal notranslate"><span class="pre">discord_token</span></code> to.</p>
+<p>The discord bridge can be used by requesting the <code class="docutils literal notranslate"><span class="pre">discord</span></code> from DAD. First
+though, you need to setup a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server-">new discord server</a>, a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360045093012-Server-Integrations-Page">webhook</a> for that server
+(save this for latter), and then <a class="reference external" href="https://discordpy.readthedocs.io/en/stable/discord.html">register a new bot</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of the most recent discord API update, you will need to give your bot the
+<a class="reference external" href="https://discord.com/developers/docs/topics/gateway#message-content-intent">message content intent</a> for shady to work.</p>
+</div>
+<p>When you register a new bot, you will get a token that will allow the discord
+bridge to act as your newly created bot. You will need to pass this token
+through the G variable like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">shadybackend</span> <span class="s2">&quot;discord&quot;</span> <span class="s1">&#39;{&quot;discord_token&quot;: &quot;&lt;bot token&gt;&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>This tells shady backend to start DAD with the discord bridge, and to connect
+to the bot token provided. You can test your webhook with the folowing commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; export WEBHOOK_URL=&quot;&lt;your web hook url&gt;&quot;
+&gt; export SHADY_MSG=&#39;{&quot;api_call&quot;:&quot;example_api_call&quot;,&quot;data&quot;:{&quot;example_arg&quot;:&quot;foobar&quot;}}&#39;
+&gt; export WEBHOOK_MSG=&quot;{\&quot;username\&quot;: \&quot;test\&quot;, \&quot;content\&quot;: \&quot;$SHADY_MSG\&quot;}&quot;
+&gt; curl -H &quot;Content-Type: application/json&quot; -d $WEBHOOK_MSG $WEBHOOK_URL
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note how the shady <a class="reference internal" href="#call-structure">Call Structure</a> is wrapped by the the discord call structure.</p>
+</div>
 </section>
 </section>
 <section id="indices-and-tables">

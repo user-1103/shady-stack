@@ -72,18 +72,21 @@ signal(SIGINT, on_exit)
 
 
 def run() -> None:
+    """
+    Runs the CLI parser and then starts the top level.
+    """
     parser = ArgumentParser(
-                    prog='Shady Backend',
-                    description=('CLI interface to run parts of'
-                                 ' the shadybackend through DAD.'),
-                    epilog=f'Release {VERSION}')
+        prog='Shady Backend',
+        description=('CLI interface to run parts of'
+                     ' the shadybackend through DAD.'),
+        epilog=f'Using: Shady Backend Release {VERSION}')
     parser.add_argument("-v", "--verbose", action='store_true',
                         help="Be chatty.")
     parser.add_argument("--tree", default=DEFAULT_WEB_ROOT,
                         help="Provide the location of the web root.")
     parser.add_argument("--api", default=DEFAULT_API_ROOT,
                         help="Provide the location of the api.py file.")
-    parser.add_argument("bridge", metavar='B', choices=BRIDGES.keys(),
+    parser.add_argument("bridge", metavar='BRIDGE', choices=BRIDGES.keys(),
                         help="The name of the bridge to use.")
     parser.add_argument("start_g", metavar='G',
                         help="A JSON dict to initialize G to.")

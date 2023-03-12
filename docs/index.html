@@ -91,6 +91,10 @@
 <li><a class="reference internal" href="#discord-bridge">Discord Bridge</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#hacking">Hacking</a><ul>
+<li><a class="reference internal" href="#progmatic-use">Progmatic Use</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -234,14 +238,14 @@ self (found in pyproject.toml). And run:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> python module is it the collection of resources provided
 by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
 from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see <a href="#id4"><span class="problematic" id="id5">`Progmatic Use`_</span></a>.</p>
+by the repo. To progamiticly use the module, see <a class="reference internal" href="#progmatic-use">Progmatic Use</a>.</p>
 <section id="cli-args">
 <h2>CLI Args<a class="headerlink" href="#cli-args" title="Permalink to this heading">¶</a></h2>
 <p>No matter how you call shady, the following is roughly how it will be used.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">command</span> <span class="n">to</span> <span class="n">call</span> <span class="n">shady</span><span class="o">&gt;</span> <span class="s1">&#39;&lt;name of bridge&gt;&#39;</span> <span class="s1">&#39;&lt;JSON describing the initial G value&gt;&#39;</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="#default-bridges">default bridges</a> and <a href="#id6"><span class="problematic" id="id7">`G`_</span></a> for more info.</p>
+<p>See <a class="reference internal" href="#default-bridges">default bridges</a> and <a href="#id4"><span class="problematic" id="id5">`G`_</span></a> for more info.</p>
 </section>
 <section id="optional-args">
 <h2>Optional Args<a class="headerlink" href="#optional-args" title="Permalink to this heading">¶</a></h2>
@@ -285,10 +289,10 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 <ol class="arabic simple">
 <li><p>Here we import the <a class="reference external" href="https://www.geeksforgeeks.org/function-wrappers-in-python/">wraper</a> function for defining an api call.</p></li>
 <li><p>A little space to breath.</p></li>
-<li><p>We use the wrapper to define the <a href="#id8"><span class="problematic" id="id9">`baseline arguments`_</span></a> for the api.</p></li>
+<li><p>We use the wrapper to define the <a href="#id6"><span class="problematic" id="id7">`baseline arguments`_</span></a> for the api.</p></li>
 <li><p>We declare a function that will do the actual backend processing of
 the api. The name of the api call is determined by the name of the function
-and is passed <a href="#id10"><span class="problematic" id="id11">G_</span></a>, and <a href="#id12"><span class="problematic" id="id13">ARGS_</span></a>.</p></li>
+and is passed <a href="#id8"><span class="problematic" id="id9">G_</span></a>, and <a href="#id10"><span class="problematic" id="id11">ARGS_</span></a>.</p></li>
 </ol>
 <p>API baselines are one of the defualt security fetures of SHADY-STACK. The
 basline for an api exists as a dictionary keyed by strings representing the
@@ -308,7 +312,7 @@ The data in this variable is shared across all api calls, <a class="reference in
 <p>A feature that is being concidered is to save the state of <code class="docutils literal notranslate"><span class="pre">G</span></code> across runs of the backend.
 For now though, the state is purged on shutdown.</p>
 </div>
-<p>By default, DAD sets the folowing <a href="#id14"><span class="problematic" id="id15">G_</span></a> variables:</p>
+<p>By default, DAD sets the folowing <a href="#id12"><span class="problematic" id="id13">G_</span></a> variables:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -338,7 +342,7 @@ error handeling.</p></td>
 The Requests stored in these variables are not sanitized.</p>
 </div>
 <p>After the above parsing is done to the aruments provided to the webhook, they
-are then provided to the API funciton via the <a href="#id16"><span class="problematic" id="id17">ARGS_</span></a> variable.</p>
+are then provided to the API funciton via the <a href="#id14"><span class="problematic" id="id15">ARGS_</span></a> variable.</p>
 </section>
 <section id="hooks">
 <h2>HOOKS<a class="headerlink" href="#hooks" title="Permalink to this heading">¶</a></h2>
@@ -460,6 +464,17 @@ curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Con
 <p class="admonition-title">Note</p>
 <p>Note how the shady <a class="reference internal" href="#call-structure">Call Structure</a> is wrapped by the the discord call structure.</p>
 </div>
+</section>
+</section>
+<section id="hacking">
+<h1>Hacking<a class="headerlink" href="#hacking" title="Permalink to this heading">¶</a></h1>
+<p>If you intend to modify the code provided in the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a>, the following should be helpful.</p>
+<section id="progmatic-use">
+<h2>Progmatic Use<a class="headerlink" href="#progmatic-use" title="Permalink to this heading">¶</a></h2>
+<p>The code is devided into a few logical modules, the first of which to concider
+is <code class="docutils literal notranslate"><span class="pre">top_level.py</span></code>:</p>
+<p>The above code primaraly loads the requested bridge from <code class="docutils literal notranslate"><span class="pre">bridges.py</span></code> and starts DAD (located in <code class="docutils literal notranslate"><span class="pre">demon.py</span></code>. These two modules are documented below:</p>
+<p>Finally, shady backend also provides two utility classes to deal with the two most common data types. The documentation for <code class="docutils literal notranslate"><span class="pre">request_tools.py</span></code> and <code class="docutils literal notranslate"><span class="pre">api_tools.py</span></code> follows:</p>
 </section>
 </section>
 <section id="indices-and-tables">

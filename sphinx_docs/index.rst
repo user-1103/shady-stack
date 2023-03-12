@@ -374,6 +374,46 @@ to the bot token provided. You can test your webhook with the folowing commands:
 .. note::
    Note how the shady `Call Structure`_ is wrapped by the the discord call structure.
 
+Hacking
+=======
+
+If you intend to modify the code provided in the repo_, the following should be helpful.
+
+Progmatic Use
+-------------
+
+The code is devided into a few logical modules, the first of which to concider
+is ``top_level.py``:
+
+.. autodoc:: shadybackend.top_level
+   :members:
+   :undoc-members:
+   :private-members:
+
+The above code primaraly loads the requested bridge from ``bridges.py`` and starts DAD (located in ``demon.py``. These two modules are documented below:
+
+.. autodoc:: shadybackend.bridges
+   :members:
+   :undoc-members:
+   :private-members:
+
+.. autodoc:: shadybackend.demon
+   :members:
+   :undoc-members:
+   :private-members:
+
+Finally, shady backend also provides two utility classes to deal with the two most common data types. The documentation for ``request_tools.py`` and ``api_tools.py`` follows:
+
+.. autodoc:: shadybackend.request_tools
+   :members:
+   :undoc-members:
+   :private-members:
+
+.. autodoc:: shadybackend.api_tools
+   :members:
+   :undoc-members:
+   :private-members:
+
 Indices and tables
 ==================
 

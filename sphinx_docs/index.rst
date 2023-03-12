@@ -24,11 +24,9 @@
 .. _`message content intent`: https://discord.com/developers/docs/topics/gateway#message-content-intent
 
 
-Welcome to SHADY-STACK
-======================
-
 Overview
-````````
+========
+
 Before we dive into the code, lets talk about the abstract concepts.
 
 What Is SHADY-STACK?
@@ -156,7 +154,7 @@ self (found in pyproject.toml). And run:
    Need to set up a pip package...
 
 Shady Backend
-`````````````
+=============
 
 The ``shadybackend`` python module is it the collection of resources provided
 by the repo. The Install_ section outlines how to install and run the module
@@ -170,7 +168,7 @@ No matter how you call shady, the following is roughly how it will be used.
 
 ::
 
-> <command to call shady> '<name of bridge>' '<JSON describing the initial G value>'
+ <command to call shady> '<name of bridge>' '<JSON describing the initial G value>'
 
 See `default bridges`_ and `G`_ for more info.
 
@@ -321,7 +319,7 @@ request. The available events you can hook are:
 
 
 Default Bridges
-```````````````
+===============
 
 The SHADY-STACK repo_ provides a bunch of defualt bridges that can be activated
 with DAD.
@@ -360,23 +358,24 @@ through the G variable like so:
 
 ::
 
-> python3 shadybackend "discord" '{"discord_token": "<bot token>"}'
+ python3 shadybackend "discord" '{"discord_token": "<bot token>"}'
 
 This tells shady backend to start DAD with the discord bridge, and to connect
 to the bot token provided. You can test your webhook with the folowing commands:
 
-::
+..  code-block:: sh
+    :caption: test_hook.sh
 
-> export WEBHOOK_URL="<your web hook url>"
-> export SHADY_MSG='{"api_call":"example_api_call","data":{"example_arg":"foobar"}}'
-> export WEBHOOK_MSG="{\"username\": \"test\", \"content\": \"$SHADY_MSG\"}"
-> curl -H "Content-Type: application/json" -d $WEBHOOK_MSG $WEBHOOK_URL
+    export WEBHOOK_URL="<your web hook url>"
+    export SHADY_MSG='{"api_call":"example_api_call","data":{"example_arg":"foobar"}}'
+    export WEBHOOK_MSG="{\"username\": \"test\", \"content\": \"$SHADY_MSG\"}"
+    curl -H "Content-Type: application/json" -d $WEBHOOK_MSG $WEBHOOK_URL
 
 .. note::
    Note how the shady `Call Structure`_ is wrapped by the the discord call structure.
 
 Indices and tables
-``````````````````
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`

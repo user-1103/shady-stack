@@ -73,9 +73,9 @@ There are some ups and downs to using this stack.
 | proxy of sorts.                | provider means failure/delay     |
 |                                | in your site.                    |
 +--------------------------------+----------------------------------+
-| It's free!                     | Depending on the web hook        |
-|                                | provider, it may be breaking a   |
-|                                | TOS or two.                      |
+| It's free!                     | One must be carefull not to      |
+|                                | violate any TOS when using       |
+|                                | certian webhook providers.       |
 +--------------------------------+----------------------------------+
 | It's kinda fail-safe.          | The number of components between |
 | If the backend breaks,         | your frontend and backend means  |
@@ -428,7 +428,7 @@ located in the repo_ (https://github.com/user-1103/shady-stack) however is
 licensed under the following terms:
 
 
-1. By using the code you irrevocably agnlaage that:
+1. By using the code you irrevocably acknowledge that:
 
    - Trans rights are human rights.
    - The sovereign nations of Tibet and Hong Kong are being unjustly
@@ -441,15 +441,40 @@ licensed under the following terms:
    to be considered as licensed under GNU Affero General Public License v3.0
    (https://choosealicense.com/licenses/agpl-3.0/).
 
-By using and / or copying the code in the repo_ you agnolage that you
+By using and / or copying the code in the repo_ you acknowledge that you
 understand these rules and will abide by them.
 
-Agnolegments
-------------
+Acknowledgments
+---------------
 
 This project would not have been possible without the following people.
 
  - `Rapptz's discord.py <https://github.com/Rapptz>`_
+
+Change Log
+----------
+
+V0.1.0
+    Initial release.
+
+TODO
+----
+
+- PYPI package
+
+- Tests
+
+- Bridges for:
+
+  - Slack
+
+  - GitHub Actions
+    
+  - FIFO
+
+- Utility bindings for:
+
+  - Github
 
 Indices and tables
 ==================

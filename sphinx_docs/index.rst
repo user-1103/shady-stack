@@ -385,31 +385,31 @@ Pragmatic Use
 The code is divided into a few logical modules, the first of which to consider
 is ``top_level.py``:
 
-.. autodoc:: shadybackend.top_level
+.. automodule:: shadybackend.top_level
    :members:
    :undoc-members:
    :private-members:
 
 The above code primaraly loads the requested bridge from ``bridges.py`` and starts DAD (located in ``demon.py``. These two modules are documented below:
 
-.. autodoc:: shadybackend.bridges
+.. automodule:: shadybackend.bridges
    :members:
    :undoc-members:
    :private-members:
 
-.. autodoc:: shadybackend.demon
+.. automodule:: shadybackend.demon
    :members:
    :undoc-members:
    :private-members:
 
 Finally, shady backend also provides two utility classes to deal with the two most common data types. The documentation for ``request_tools.py`` and ``api_tools.py`` follows:
 
-.. autodoc:: shadybackend.request_tools
+.. automodule:: shadybackend.request_tools
    :members:
    :undoc-members:
    :private-members:
 
-.. autodoc:: shadybackend.api_tools
+.. automodule:: shadybackend.api_tools
    :members:
    :undoc-members:
    :private-members:

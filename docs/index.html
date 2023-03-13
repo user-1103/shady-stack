@@ -92,7 +92,59 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#hacking">Hacking</a><ul>
-<li><a class="reference internal" href="#progmatic-use">Progmatic Use</a></li>
+<li><a class="reference internal" href="#pragmatic-use">Pragmatic Use</a><ul>
+<li><a class="reference internal" href="#shadybackend.top_level.on_exit"><code class="docutils literal notranslate"><span class="pre">on_exit()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.top_level.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.top_level.run_top_level"><code class="docutils literal notranslate"><span class="pre">run_top_level()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.bridges.DiscordBridge"><code class="docutils literal notranslate"><span class="pre">DiscordBridge</span></code></a><ul>
+<li><a class="reference internal" href="#shadybackend.bridges.DiscordBridge.build_bridge"><code class="docutils literal notranslate"><span class="pre">DiscordBridge.build_bridge()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.bridges.DiscordBridge.name"><code class="docutils literal notranslate"><span class="pre">DiscordBridge.name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadybackend.demon.run_api_demon"><code class="docutils literal notranslate"><span class="pre">run_api_demon()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.BadRequest"><code class="docutils literal notranslate"><span class="pre">BadRequest</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.BaselineValue"><code class="docutils literal notranslate"><span class="pre">BaselineValue</span></code></a><ul>
+<li><a class="reference internal" href="#shadybackend.request_tools.BaselineValue.NOT_FOUND"><code class="docutils literal notranslate"><span class="pre">BaselineValue.NOT_FOUND</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a><ul>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request._type"><code class="docutils literal notranslate"><span class="pre">Request._type</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request.api_call"><code class="docutils literal notranslate"><span class="pre">Request.api_call</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request.data"><code class="docutils literal notranslate"><span class="pre">Request.data</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request.sanitize"><code class="docutils literal notranslate"><span class="pre">Request.sanitize()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools.Request.shady_request_version"><code class="docutils literal notranslate"><span class="pre">Request.shady_request_version</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadybackend.request_tools._check_required"><code class="docutils literal notranslate"><span class="pre">_check_required()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.request_tools._update"><code class="docutils literal notranslate"><span class="pre">_update()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.API"><code class="docutils literal notranslate"><span class="pre">API</span></code></a><ul>
+<li><a class="reference internal" href="#shadybackend.api_tools.API.baseline"><code class="docutils literal notranslate"><span class="pre">API.baseline</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.API.call_function"><code class="docutils literal notranslate"><span class="pre">API.call_function</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.API.name"><code class="docutils literal notranslate"><span class="pre">API.name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes"><code class="docutils literal notranslate"><span class="pre">HookTypes</span></code></a><ul>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.ERR"><code class="docutils literal notranslate"><span class="pre">HookTypes.ERR</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.EXIT"><code class="docutils literal notranslate"><span class="pre">HookTypes.EXIT</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.FATAL"><code class="docutils literal notranslate"><span class="pre">HookTypes.FATAL</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.INIT"><code class="docutils literal notranslate"><span class="pre">HookTypes.INIT</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.OK"><code class="docutils literal notranslate"><span class="pre">HookTypes.OK</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.POST"><code class="docutils literal notranslate"><span class="pre">HookTypes.POST</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.PRE"><code class="docutils literal notranslate"><span class="pre">HookTypes.PRE</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.HookTypes.WAIT"><code class="docutils literal notranslate"><span class="pre">HookTypes.WAIT</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadybackend.api_tools.MalformedAPI"><code class="docutils literal notranslate"><span class="pre">MalformedAPI</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.call_hooks"><code class="docutils literal notranslate"><span class="pre">call_hooks()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.collect_apis"><code class="docutils literal notranslate"><span class="pre">collect_apis()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.define_hook"><code class="docutils literal notranslate"><span class="pre">define_hook()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.defnine_API"><code class="docutils literal notranslate"><span class="pre">defnine_API()</span></code></a></li>
+<li><a class="reference internal" href="#shadybackend.api_tools.process_request"><code class="docutils literal notranslate"><span class="pre">process_request()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributions">Contributions</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#agnolegments">Agnolegments</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -133,7 +185,7 @@ with the remote tree served as the static site in step 1.</p></li>
 <p>In this webpage you will find the documentation for using the SHADY-STACK.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This sample documentation was generated on Mar 12, 2023, and is rebuilt with
+<p>This sample documentation was generated on Mar 13, 2023, and is rebuilt with
 each release.</p>
 </div>
 <div class="toctree-wrapper compound">
@@ -203,14 +255,14 @@ provides the following:</p>
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
 <p>The resources provided by the SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> are in the form of a python
 model of the name <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code>.</p>
-<p>Currently the default demon and a specified bridge
+<p>Currently, the default demon and a specified bridge
 can be run as a <a class="reference external" href="https://nixos.org/">nix</a> flake with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nix</span> <span class="n">run</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span> <span class="o">-</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
 <span class="c1"># To enter a development environment use:</span>
 <span class="n">nix</span> <span class="n">develop</span> <span class="n">github</span><span class="p">:</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
 </pre></div>
 </div>
-<p>For thoes of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
+<p>For those of you who have yet to see the glory of <a class="reference external" href="https://nixos.org/">nix</a> the package can be
 installed as a <a class="reference external" href="https://python-poetry.org/docs/">poetry</a> project.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the repo.</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">-</span><span class="mi">1103</span><span class="o">/</span><span class="n">shady</span><span class="o">-</span><span class="n">stack</span>
@@ -237,8 +289,8 @@ self (found in pyproject.toml). And run:</p>
 <h1>Shady Backend<a class="headerlink" href="#shady-backend" title="Permalink to this heading">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> python module is it the collection of resources provided
 by the repo. The <a class="reference internal" href="#install">Install</a> section outlines how to install and run the module
-from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see <a class="reference internal" href="#progmatic-use">Progmatic Use</a>.</p>
+from the command line, subsequently allowing for access to all the parts provided
+by the repo. To progamaticly use the module, see <a class="reference internal" href="#pragmatic-use">Pragmatic Use</a>.</p>
 <section id="cli-args">
 <h2>CLI Args<a class="headerlink" href="#cli-args" title="Permalink to this heading">¶</a></h2>
 <p>No matter how you call shady, the following is roughly how it will be used.</p>
@@ -266,14 +318,14 @@ by the repo. To progamiticly use the module, see <a class="reference internal" h
 </dl>
 <section id="the-default-api-demon-dad">
 <h3>The Default API Demon (DAD)<a class="headerlink" href="#the-default-api-demon-dad" title="Permalink to this heading">¶</a></h3>
-<p>DAD is an extremely bare bones Application Demon. When <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> is run,
+<p>DAD is an extremely bare-bones Application Demon. When <code class="docutils literal notranslate"><span class="pre">shadybackend</span></code> is run,
 it will be started. When run, DAD first looks for user defined APIs to load in
-from <code class="docutils literal notranslate"><span class="pre">api.py</span></code> in the curent directory.</p>
+from <code class="docutils literal notranslate"><span class="pre">api.py</span></code> in the current directory.</p>
 </section>
 </section>
 <section id="defining-apis">
 <h2>Defining APIs<a class="headerlink" href="#defining-apis" title="Permalink to this heading">¶</a></h2>
-<p>An <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file is a normal python file where you can define how your api.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file is a normal python file where you can define how your API.</p>
 <p>Take the sample below:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">api.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
@@ -285,69 +337,47 @@ from <code class="docutils literal notranslate"><span class="pre">api.py</span><
 </pre></div>
 </div>
 </div>
-<p>Lets break down these lines one at a time:</p>
+<p>Let’s break down these lines one at a time:</p>
 <ol class="arabic simple">
-<li><p>Here we import the <a class="reference external" href="https://www.geeksforgeeks.org/function-wrappers-in-python/">wraper</a> function for defining an api call.</p></li>
+<li><p>Here we import the <a class="reference external" href="https://www.geeksforgeeks.org/function-wrappers-in-python/">wrapper</a> function for defining an API call.</p></li>
 <li><p>A little space to breath.</p></li>
-<li><p>We use the wrapper to define the <a href="#id6"><span class="problematic" id="id7">`baseline arguments`_</span></a> for the api.</p></li>
+<li><p>We use the wrapper to define the <a href="#id6"><span class="problematic" id="id7">`baseline arguments`_</span></a> for the API.</p></li>
 <li><p>We declare a function that will do the actual backend processing of
-the api. The name of the api call is determined by the name of the function
+the API. The name of the API call is determined by the name of the function
 and is passed <a href="#id8"><span class="problematic" id="id9">G_</span></a>, and <a href="#id10"><span class="problematic" id="id11">ARGS_</span></a>.</p></li>
 </ol>
-<p>API baselines are one of the defualt security fetures of SHADY-STACK. The
-basline for an api exists as a dictionary keyed by strings representing the
+<p>API baselines are one of the default security features of SHADY-STACK. The
+baseline for an API exists as a dictionary keyed by strings representing the
 name of the argument. The values represent the default values for the argument
-if none is provided when the api is called. Before the api funciton is called,
-the types of each suplied argument will be compaired to the type of the defualt
-value. If they do not match, the api will not be called. If the name of an
-arument ends with a <code class="docutils literal notranslate"><span class="pre">_</span></code>, it will be marked as required. If a required arg is
-missing when an api call is requested, the api will not be called. All aruments
-provided that are not found in the baseline will be silenty dropped before
-being called. Internaly the default <a class="reference external" href="https://docs.python.org/3/library/json.html">JSON</a> lib is used and as such, only types
+if none is provided when the API is called. Before the API function is called,
+the types of each supplied argument will be compared to the type of the default
+value. If they do not match, the API will not be called. If the name of an
+argument ends with a <code class="docutils literal notranslate"><span class="pre">_</span></code>, it will be marked as required. If a required arg is
+missing when an API call is requested, the API will not be called. All arguments
+provided that are not found in the baseline will be silently dropped before
+being called. Internal the default <a class="reference external" href="https://docs.python.org/3/library/json.html">JSON</a> lib is used and as such, only types
 parsed by it can be used in the baseline.</p>
-<p>When an api is called, it has acess to a global dictionary named <code class="docutils literal notranslate"><span class="pre">G</span></code> al la <a class="reference external" href="https://flask.palletsprojects.com/en/2.2.x/">flask</a>.
-The data in this variable is shared across all api calls, <a class="reference internal" href="#hooks">hooks</a>, and Application Bridges.</p>
+<p>When an API is called, it has access to a global dictionary named <code class="docutils literal notranslate"><span class="pre">G</span></code> a la <a class="reference external" href="https://flask.palletsprojects.com/en/2.2.x/">flask</a>.
+The data in this variable is shared across all API calls, <a class="reference internal" href="#hooks">hooks</a>, and Application Bridges.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A feature that is being concidered is to save the state of <code class="docutils literal notranslate"><span class="pre">G</span></code> across runs of the backend.
+<p>A feature that is being considered is to save the state of <code class="docutils literal notranslate"><span class="pre">G</span></code> across runs of the backend.
 For now though, the state is purged on shutdown.</p>
 </div>
-<p>By default, DAD sets the folowing <a href="#id12"><span class="problematic" id="id13">G_</span></a> variables:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>root</p></td>
-<td><p>The path to the location of the local web root.</p></td>
-</tr>
-<tr class="row-odd"><td><p>run</p></td>
-<td><p>Can be set to false to shutdown the demon.</p></td>
-</tr>
-<tr class="row-even"><td><p>Q</p></td>
-<td><p>The queue of Request objects to process.</p></td>
-</tr>
-<tr class="row-odd"><td><p>req</p></td>
-<td><p>The curent request being processed. Usefull for
-error handeling.</p></td>
-</tr>
-</tbody>
-</table>
+<p>By default, DAD sets the following <a href="#id12"><span class="problematic" id="id13">G_</span></a> variables:</p>
 <p><a class="reference internal" href="#default-bridges">Default bridges</a> may define further values.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It is probably best to not touch <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">req</span></code> unless you know what you are doing.
 The Requests stored in these variables are not sanitized.</p>
 </div>
-<p>After the above parsing is done to the aruments provided to the webhook, they
-are then provided to the API funciton via the <a href="#id14"><span class="problematic" id="id15">ARGS_</span></a> variable.</p>
+<p>After the above parsing is done to the arguments provided to the webhook, they
+are then provided to the API function via the <a href="#id14"><span class="problematic" id="id15">ARGS_</span></a> variable.</p>
 </section>
 <section id="hooks">
 <h2>HOOKS<a class="headerlink" href="#hooks" title="Permalink to this heading">¶</a></h2>
-<p>DAD provides a way to ensure certian actions happen when ceritan events happen
-during the execution of DAD. Take the following adition to our <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file:</p>
+<p>DAD provides a way to ensure certain actions happen when certain events happen
+during the execution of DAD. Take the following addition to our <code class="docutils literal notranslate"><span class="pre">api.py</span></code> file:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">api.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shadybackend.api_tools</span> <span class="kn">import</span> <span class="n">define_api</span><span class="p">,</span> <span class="n">define_hook</span><span class="p">,</span> <span class="n">HookTypes</span>
@@ -364,7 +394,7 @@ during the execution of DAD. Take the following adition to our <code class="docu
 </pre></div>
 </div>
 </div>
-<p>This trivial example writes a log file everytime DAD fails to process a
+<p>This trivial example writes a log file every time DAD fails to process a
 request. The available events you can hook are:</p>
 <table class="docutils align-default">
 <thead>
@@ -392,7 +422,7 @@ request. The available events you can hook are:</p>
 <td><p>…demon safe exit.</p></td>
 </tr>
 <tr class="row-even"><td><p>HookTypes.FATAL</p></td>
-<td><p>…demon hitting an unsaveable error.</p></td>
+<td><p>…demon hitting an unliveable error.</p></td>
 </tr>
 <tr class="row-odd"><td><p>HookTypes.WAIT</p></td>
 <td><p>…demon idle.</p></td>
@@ -408,15 +438,15 @@ remote static site.</p>
 </section>
 <section id="default-bridges">
 <h1>Default Bridges<a class="headerlink" href="#default-bridges" title="Permalink to this heading">¶</a></h1>
-<p>The SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> provides a bunch of defualt bridges that can be activated
+<p>The SHADY-STACK <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> provides a bunch of default bridges that can be activated
 with DAD.</p>
 <section id="call-structure">
 <h2>Call Structure<a class="headerlink" href="#call-structure" title="Permalink to this heading">¶</a></h2>
 <p>When the user using the static front end of your site needs to do something
 dynamic, the JS in the page should call the webhook watched by the Application
-Bridge. In this call two things need to be passed the name of the api call to
-use, and the aruments to pass to the api call. The bridges defined in the repo
-expects the folowing data feilds as a minimum:</p>
+Bridge. In this call two things need to be passed the name of the API call to
+use, and the arguments to pass to the API call. The bridges defined in the repo
+expects the following data fields as a minimum:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -436,7 +466,7 @@ expects the folowing data feilds as a minimum:</p>
 <section id="discord-bridge">
 <h2>Discord Bridge<a class="headerlink" href="#discord-bridge" title="Permalink to this heading">¶</a></h2>
 <p>The discord bridge can be used by requesting the <code class="docutils literal notranslate"><span class="pre">discord</span></code> from DAD. First
-though, you need to setup a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server-">new discord server</a>, a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360045093012-Server-Integrations-Page">webhook</a> for that server
+though, you need to set up a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/204849977-How-do-I-create-a-server-">new discord server</a>, a <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360045093012-Server-Integrations-Page">webhook</a> for that server
 (save this for latter), and then <a class="reference external" href="https://discordpy.readthedocs.io/en/stable/discord.html">register a new bot</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -450,7 +480,7 @@ through the G variable like so:</p>
 </pre></div>
 </div>
 <p>This tells shady backend to start DAD with the discord bridge, and to connect
-to the bot token provided. You can test your webhook with the folowing commands:</p>
+to the bot token provided. You can test your webhook with the following commands:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">test_hook.sh</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WEBHOOK_URL</span><span class="o">=</span><span class="s2">&quot;&lt;your web hook url&gt;&quot;</span>
@@ -462,19 +492,346 @@ curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Con
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note how the shady <a class="reference internal" href="#call-structure">Call Structure</a> is wrapped by the the discord call structure.</p>
+<p>Note how the shady <a class="reference internal" href="#call-structure">Call Structure</a> is wrapped by the discord call structure.</p>
 </div>
 </section>
 </section>
 <section id="hacking">
 <h1>Hacking<a class="headerlink" href="#hacking" title="Permalink to this heading">¶</a></h1>
 <p>If you intend to modify the code provided in the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a>, the following should be helpful.</p>
-<section id="progmatic-use">
-<h2>Progmatic Use<a class="headerlink" href="#progmatic-use" title="Permalink to this heading">¶</a></h2>
-<p>The code is devided into a few logical modules, the first of which to concider
+<section id="pragmatic-use">
+<h2>Pragmatic Use<a class="headerlink" href="#pragmatic-use" title="Permalink to this heading">¶</a></h2>
+<p>The code is divided into a few logical modules, the first of which to consider
 is <code class="docutils literal notranslate"><span class="pre">top_level.py</span></code>:</p>
+<span class="target" id="module-shadybackend.top_level"></span><p>Serves as the entry point for runing the SHADY backend.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.top_level.on_exit">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.top_level.</span></span><span class="sig-name descname"><span class="pre">on_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.top_level.on_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the redigested EXIT hooks on kill signal</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.top_level.run">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.top_level.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.top_level.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the CLI parser and then starts the top level.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.top_level.run_top_level">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.top_level.</span></span><span class="sig-name descname"><span class="pre">run_top_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bridge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./tree'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./api.py'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.top_level.run_top_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the provided hook bridge and runs the default demon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args start_g<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON string that will be loaded as the default global</p>
+</dd>
+</dl>
+<p>dictionary.
+:args bridge: The bridge app to use. See the bridge module for options.
+:args root: The path as a string to the root of the web tree.
+:args api: The path as a string to the api to be run.</p>
+</dd></dl>
+
 <p>The above code primaraly loads the requested bridge from <code class="docutils literal notranslate"><span class="pre">bridges.py</span></code> and starts DAD (located in <code class="docutils literal notranslate"><span class="pre">demon.py</span></code>. These two modules are documented below:</p>
+<span class="target" id="module-shadybackend.bridges"></span><p>A central module to look up the available backends.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="shadybackend.bridges.DiscordBridge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.bridges.</span></span><span class="sig-name descname"><span class="pre">DiscordBridge</span></span><a class="headerlink" href="#shadybackend.bridges.DiscordBridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is just the example code from:
+<a class="reference external" href="https://discordpy.readthedocs.io/en/stable/quickstart.html">https://discordpy.readthedocs.io/en/stable/quickstart.html</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="shadybackend.bridges.DiscordBridge.build_bridge">
+<span class="sig-name descname"><span class="pre">build_bridge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.bridges.DiscordBridge.build_bridge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.bridges.DiscordBridge.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'discord'</span></em><a class="headerlink" href="#shadybackend.bridges.DiscordBridge.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-shadybackend.demon"></span><p>This is the default API demon that is used for the shadybackend.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.demon.run_api_demon">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.demon.</span></span><span class="sig-name descname"><span class="pre">run_api_demon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.demon.run_api_demon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the app, with self restarting on recoverable errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args root<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The root of the web tree.</p>
+</dd>
+<dt class="field-even">Args api_paths<span class="colon">:</span></dt>
+<dd class="field-even"><p>The paths where API definitions are found.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p>Finally, shady backend also provides two utility classes to deal with the two most common data types. The documentation for <code class="docutils literal notranslate"><span class="pre">request_tools.py</span></code> and <code class="docutils literal notranslate"><span class="pre">api_tools.py</span></code> follows:</p>
+<span class="target" id="module-shadybackend.request_tools"></span><p>A module to define the Request type.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="shadybackend.request_tools.BadRequest">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.request_tools.</span></span><span class="sig-name descname"><span class="pre">BadRequest</span></span><a class="headerlink" href="#shadybackend.request_tools.BadRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when a request is received that does not folow the API baseline.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shadybackend.request_tools.BaselineValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.request_tools.</span></span><span class="sig-name descname"><span class="pre">BaselineValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shadybackend.request_tools.BaselineValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.request_tools.BaselineValue.NOT_FOUND">
+<span class="sig-name descname"><span class="pre">NOT_FOUND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#shadybackend.request_tools.BaselineValue.NOT_FOUND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.request_tools.</span></span><span class="sig-name descname"><span class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shady_request_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ἐπιούσιον'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shadybackend.request_tools.Request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a request to a SHADY backend. May be warped in other json as may
+be needed for the webhook provider to work.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ἐπιούσιον'</span></em><a class="headerlink" href="#shadybackend.request_tools.Request._type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request.api_call">
+<span class="sig-name descname"><span class="pre">api_call</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#shadybackend.request_tools.Request.api_call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#shadybackend.request_tools.Request.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request.sanitize">
+<span class="sig-name descname"><span class="pre">sanitize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#shadybackend.request_tools.Request.sanitize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the data element and the provied basline and checks that for
+every element in the basline, there is a matching attribute at the same
+location, name, and type in the data element. If these conditions are
+matched it will be added to the output dictionary. If the name and
+location exists in the basline but not the data element, and the name
+does not end in _ (IE it is required), then the value in the basline
+will be used as a default. If it is required, then the BadRequest Error
+will be thrown. In all other cases, if there are extra names /
+locations in the data element, they will be silently dropped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args baseline<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The baseline of the API to use (will be coppied) for</p>
+</dd>
+</dl>
+<p>the return value.
+:return: The sanitized baseline</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.request_tools.Request.shady_request_version">
+<span class="sig-name descname"><span class="pre">shady_request_version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#shadybackend.request_tools.Request.shady_request_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.request_tools._check_required">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.request_tools.</span></span><span class="sig-name descname"><span class="pre">_check_required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#shadybackend.request_tools._check_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if there are any values with a name ending in _ (IE it is required)
+in tmp and returns a list of attribute names if any are found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args tmp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The data struck to search through</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of attributes with names that end in _</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.request_tools._update">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.request_tools.</span></span><span class="sig-name descname"><span class="pre">_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#shadybackend.request_tools._update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes baseline and updates any shared attributes with the contents of data.
+If the types do not match in the shared attributes, baseline will not be
+updated. In staid, a tuple of (attribute name, expected, got) will be added
+to the list that is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args data<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The arguments to pass to the API</p>
+</dd>
+<dt class="field-even">Args baseline<span class="colon">:</span></dt>
+<dd class="field-even"><p>The default args of the API</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of missmatched types</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-shadybackend.api_tools"></span><p>Module for handeling the definition and execution of the API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="shadybackend.api_tools.API">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shadybackend.api_tools.API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an api call.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.API.baseline">
+<span class="sig-name descname"><span class="pre">baseline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#shadybackend.api_tools.API.baseline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.API.call_function">
+<span class="sig-name descname"><span class="pre">call_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span></em><a class="headerlink" href="#shadybackend.api_tools.API.call_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.API.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#shadybackend.api_tools.API.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">HookTypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shadybackend.api_tools.HookTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The types of hooks that are understood by the system.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.ERR">
+<span class="sig-name descname"><span class="pre">ERR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.ERR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.EXIT">
+<span class="sig-name descname"><span class="pre">EXIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.EXIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.FATAL">
+<span class="sig-name descname"><span class="pre">FATAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.FATAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.INIT">
+<span class="sig-name descname"><span class="pre">INIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.INIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.OK">
+<span class="sig-name descname"><span class="pre">OK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.OK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.POST">
+<span class="sig-name descname"><span class="pre">POST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.POST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.PRE">
+<span class="sig-name descname"><span class="pre">PRE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.PRE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shadybackend.api_tools.HookTypes.WAIT">
+<span class="sig-name descname"><span class="pre">WAIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#shadybackend.api_tools.HookTypes.WAIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="shadybackend.api_tools.MalformedAPI">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">MalformedAPI</span></span><a class="headerlink" href="#shadybackend.api_tools.MalformedAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when the defined api can not be loaded.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.api_tools.call_hooks">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">call_hooks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hook</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shadybackend.api_tools.HookTypes" title="shadybackend.api_tools.HookTypes"><span class="pre">HookTypes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.api_tools.call_hooks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls all hooks registered with a given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args hook<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the hook in it.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.api_tools.collect_apis">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">collect_apis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.api_tools.collect_apis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the API objects described in the given file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args path<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to load the ‘api.py’ from.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.api_tools.define_hook">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">define_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hook</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shadybackend.api_tools.HookTypes" title="shadybackend.api_tools.HookTypes"><span class="pre">HookTypes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="headerlink" href="#shadybackend.api_tools.define_hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper that registers a hook for the given hook type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args hook<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The hook type to bind two</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.api_tools.defnine_API">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">defnine_API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="headerlink" href="#shadybackend.api_tools.defnine_API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warper function to define an api call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args call_function<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The function to wrap as an API</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shadybackend.api_tools.process_request">
+<span class="sig-prename descclassname"><span class="pre">shadybackend.api_tools.</span></span><span class="sig-name descname"><span class="pre">process_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shadybackend.request_tools.Request" title="shadybackend.request_tools.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#shadybackend.api_tools.process_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a request, finds the necessary api and process the given data with said api.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args request<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The request object to process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this heading">¶</a></h2>
+<p>Pull requests are always welcome. Features can be requested on the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> issue page.
+Issues should also be reported there.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">¶</a></h2>
+<p>Everyone is welcome to build on the shady stack / swag stack concepts as they wish. The code
+located in the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> (<a class="reference external" href="https://github.com/user-1103/shady-stack">https://github.com/user-1103/shady-stack</a>) however is
+licensed under the following terms:</p>
+<ol class="arabic simple">
+<li><p>By using the code you irrevocably agnlaage that:</p>
+<ul class="simple">
+<li><p>Trans rights are human rights.</p></li>
+<li><p>The sovereign nations of Tibet and Hong Kong are being unjustly
+occupied by People’s Republic of China.</p></li>
+<li><p>The software provided in the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> and any related services are provided
+on an “as is” and “as available” basis, without warranty of any kind,
+whether written or oral, express or implied.</p></li>
+</ul>
+</li>
+<li><p>For all issues not covered in the above bullet point, the code in <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> is
+to be considered as licensed under GNU Affero General Public License v3.0
+(<a class="reference external" href="https://choosealicense.com/licenses/agpl-3.0/">https://choosealicense.com/licenses/agpl-3.0/</a>).</p></li>
+</ol>
+<p>By using and / or copying the code in the <a class="reference external" href="https://github.com/user-1103/shady-stack">repo</a> you agnolage that you
+understand these rules and will abide by them.</p>
+</section>
+<section id="agnolegments">
+<h2>Agnolegments<a class="headerlink" href="#agnolegments" title="Permalink to this heading">¶</a></h2>
+<p>This project would not have been possible without the following people.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Rapptz">Rapptz’s discord.py</a></p></li>
+</ul>
+</div></blockquote>
 </section>
 </section>
 <section id="indices-and-tables">

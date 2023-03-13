@@ -13,7 +13,7 @@
 
 .. _flask: https://flask.palletsprojects.com/en/2.2.x/
 
-.. _wraper:  https://www.geeksforgeeks.org/function-wrappers-in-python/
+.. _wrapper:  https://www.geeksforgeeks.org/function-wrappers-in-python/
 
 .. _`register a new bot`: https://discordpy.readthedocs.io/en/stable/discord.html
 
@@ -120,7 +120,7 @@ Install
 The resources provided by the SHADY-STACK repo_ are in the form of a python
 model of the name ``shadybackend``.
 
-Currently the default demon and a specified bridge 
+Currently, the default demon and a specified bridge 
 can be run as a nix_ flake with:
 
 ::
@@ -129,7 +129,7 @@ can be run as a nix_ flake with:
  # To enter a development environment use:
  nix develop github:user-1103/shady-stack
 
-For thoes of you who have yet to see the glory of nix_ the package can be
+For those of you who have yet to see the glory of nix_ the package can be
 installed as a poetry_ project.
 
 ::
@@ -158,8 +158,8 @@ Shady Backend
 
 The ``shadybackend`` python module is it the collection of resources provided
 by the repo. The Install_ section outlines how to install and run the module
-from the command line, subseqently allowing for acess to all the parts provided
-by the repo. To progamiticly use the module, see `Progmatic Use`_.
+from the command line, subsequently allowing for access to all the parts provided
+by the repo. To progamaticly use the module, see `Pragmatic Use`_.
 
 CLI Args
 --------
@@ -186,14 +186,14 @@ Additionally, one may use the following:
 The Default API Demon (DAD)
 ```````````````````````````
 
-DAD is an extremely bare bones Application Demon. When ``shadybackend`` is run,
+DAD is an extremely bare-bones Application Demon. When ``shadybackend`` is run,
 it will be started. When run, DAD first looks for user defined APIs to load in
-from ``api.py`` in the curent directory.
+from ``api.py`` in the current directory.
 
 Defining APIs
 -------------
 
-An ``api.py`` file is a normal python file where you can define how your api.
+An ``api.py`` file is a normal python file where you can define how your API.
 
 Take the sample below:
 
@@ -206,44 +206,44 @@ Take the sample below:
     def example_api(G, ARGS):
         ... # Do some api stuff
 
-Lets break down these lines one at a time:
+Let's break down these lines one at a time:
 
-1. Here we import the wraper_ function for defining an api call.
+1. Here we import the wrapper_ function for defining an API call.
 
 2. A little space to breath.
 
-3. We use the wrapper to define the `baseline arguments`_ for the api.
+3. We use the wrapper to define the `baseline arguments`_ for the API.
 
 4. We declare a function that will do the actual backend processing of
-   the api. The name of the api call is determined by the name of the function
+   the API. The name of the API call is determined by the name of the function
    and is passed G_, and ARGS_.
 
 Baseline Arguments
 ~~~~~~~~~~~~~~~~~~
 
-API baselines are one of the defualt security fetures of SHADY-STACK. The
-basline for an api exists as a dictionary keyed by strings representing the
+API baselines are one of the default security features of SHADY-STACK. The
+baseline for an API exists as a dictionary keyed by strings representing the
 name of the argument. The values represent the default values for the argument
-if none is provided when the api is called. Before the api funciton is called,
-the types of each suplied argument will be compaired to the type of the defualt
-value. If they do not match, the api will not be called. If the name of an
-arument ends with a ``_``, it will be marked as required. If a required arg is
-missing when an api call is requested, the api will not be called. All aruments
-provided that are not found in the baseline will be silenty dropped before
-being called. Internaly the default JSON_ lib is used and as such, only types
+if none is provided when the API is called. Before the API function is called,
+the types of each supplied argument will be compared to the type of the default
+value. If they do not match, the API will not be called. If the name of an
+argument ends with a ``_``, it will be marked as required. If a required arg is
+missing when an API call is requested, the API will not be called. All arguments
+provided that are not found in the baseline will be silently dropped before
+being called. Internal the default JSON_ lib is used and as such, only types
 parsed by it can be used in the baseline.
 
 G
 ~
 
-When an api is called, it has acess to a global dictionary named ``G`` al la flask_.
-The data in this variable is shared across all api calls, hooks_, and Application Bridges.
+When an API is called, it has access to a global dictionary named ``G`` a la flask_.
+The data in this variable is shared across all API calls, hooks_, and Application Bridges.
 
 .. note::
-   A feature that is being concidered is to save the state of ``G`` across runs of the backend.
+   A feature that is being considered is to save the state of ``G`` across runs of the backend.
    For now though, the state is purged on shutdown.
 
-By default, DAD sets the folowing G_ variables:
+By default, DAD sets the following G_ variables:
 
 +-----------------+--------------------------------------------------+
 | Name            | Description                                      | 
@@ -254,8 +254,8 @@ By default, DAD sets the folowing G_ variables:
 +-----------------+--------------------------------------------------+
 | Q               | The queue of Request objects to process.         |
 +-----------------+--------------------------------------------------+
-| req             | The curent request being processed. Usefull for  |
-|                 | error handeling.                                 |
+| req             | The current request being processed. Useful for  |
+|                 | error handling.                                 |
 +-----------------+--------------------------------------------------+
 
 `Default bridges`_ may define further values.
@@ -266,14 +266,14 @@ By default, DAD sets the folowing G_ variables:
 
 ARGS
 ~~~~
-After the above parsing is done to the aruments provided to the webhook, they
-are then provided to the API funciton via the ARGS_ variable.
+After the above parsing is done to the arguments provided to the webhook, they
+are then provided to the API function via the ARGS_ variable.
 
 HOOKS
 -----
 
-DAD provides a way to ensure certian actions happen when ceritan events happen
-during the execution of DAD. Take the following adition to our ``api.py`` file:
+DAD provides a way to ensure certain actions happen when certain events happen
+during the execution of DAD. Take the following addition to our ``api.py`` file:
 
 ..  code-block:: python
     :caption: api.py
@@ -290,7 +290,7 @@ during the execution of DAD. Take the following adition to our ``api.py`` file:
         with open("error.log", "a") as f:
             f.write(f"Failed to process request @{time.time()}\n")
 
-This trivial example writes a log file everytime DAD fails to process a
+This trivial example writes a log file every time DAD fails to process a
 request. The available events you can hook are:
 
 +-----------------+--------------------------------------------------+
@@ -308,7 +308,7 @@ request. The available events you can hook are:
 +-----------------+--------------------------------------------------+
 | HookTypes.EXIT  |   ...demon safe exit.                            |
 +-----------------+--------------------------------------------------+
-| HookTypes.FATAL |   ...demon hitting an unsaveable error.          |
+| HookTypes.FATAL |   ...demon hitting an unliveable error.          |
 +-----------------+--------------------------------------------------+
 | HookTypes.WAIT  |   ...demon idle.                                 |
 +-----------------+--------------------------------------------------+
@@ -321,7 +321,7 @@ request. The available events you can hook are:
 Default Bridges
 ===============
 
-The SHADY-STACK repo_ provides a bunch of defualt bridges that can be activated
+The SHADY-STACK repo_ provides a bunch of default bridges that can be activated
 with DAD.
 
 Call Structure
@@ -329,9 +329,9 @@ Call Structure
 
 When the user using the static front end of your site needs to do something
 dynamic, the JS in the page should call the webhook watched by the Application
-Bridge. In this call two things need to be passed the name of the api call to
-use, and the aruments to pass to the api call. The bridges defined in the repo
-expects the folowing data feilds as a minimum:
+Bridge. In this call two things need to be passed the name of the API call to
+use, and the arguments to pass to the API call. The bridges defined in the repo
+expects the following data fields as a minimum:
 
 +-----------------+--------------------------------------------------+
 | Name            | Description                                      | 
@@ -345,7 +345,7 @@ Discord Bridge
 --------------
 
 The discord bridge can be used by requesting the ``discord`` from DAD. First
-though, you need to setup a `new discord server`_, a `webhook`_ for that server
+though, you need to set up a `new discord server`_, a `webhook`_ for that server
 (save this for latter), and then `register a new bot`_.
 
 .. warning::
@@ -361,7 +361,7 @@ through the G variable like so:
  python3 shadybackend "discord" '{"discord_token": "<bot token>"}'
 
 This tells shady backend to start DAD with the discord bridge, and to connect
-to the bot token provided. You can test your webhook with the folowing commands:
+to the bot token provided. You can test your webhook with the following commands:
 
 ..  code-block:: sh
     :caption: test_hook.sh
@@ -372,47 +372,84 @@ to the bot token provided. You can test your webhook with the folowing commands:
     curl -H "Content-Type: application/json" -d $WEBHOOK_MSG $WEBHOOK_URL
 
 .. note::
-   Note how the shady `Call Structure`_ is wrapped by the the discord call structure.
+   Note how the shady `Call Structure`_ is wrapped by the discord call structure.
 
 Hacking
 =======
 
 If you intend to modify the code provided in the repo_, the following should be helpful.
 
-Progmatic Use
+Pragmatic Use
 -------------
 
-The code is devided into a few logical modules, the first of which to concider
+The code is divided into a few logical modules, the first of which to consider
 is ``top_level.py``:
 
-.. autodoc:: shadybackend.top_level
+.. automodule:: shadybackend.top_level
    :members:
    :undoc-members:
    :private-members:
 
 The above code primaraly loads the requested bridge from ``bridges.py`` and starts DAD (located in ``demon.py``. These two modules are documented below:
 
-.. autodoc:: shadybackend.bridges
+.. automodule:: shadybackend.bridges
    :members:
    :undoc-members:
    :private-members:
 
-.. autodoc:: shadybackend.demon
+.. automodule:: shadybackend.demon
    :members:
    :undoc-members:
    :private-members:
 
 Finally, shady backend also provides two utility classes to deal with the two most common data types. The documentation for ``request_tools.py`` and ``api_tools.py`` follows:
 
-.. autodoc:: shadybackend.request_tools
+.. automodule:: shadybackend.request_tools
    :members:
    :undoc-members:
    :private-members:
 
-.. autodoc:: shadybackend.api_tools
+.. automodule:: shadybackend.api_tools
    :members:
    :undoc-members:
    :private-members:
+
+Contributions
+--------------
+
+Pull requests are always welcome. Features can be requested on the repo_ issue page.
+Issues should also be reported there.
+
+License
+-------
+
+Everyone is welcome to build on the shady stack / swag stack concepts as they wish. The code
+located in the repo_ (https://github.com/user-1103/shady-stack) however is
+licensed under the following terms:
+
+
+1. By using the code you irrevocably agnlaage that:
+
+   - Trans rights are human rights.
+   - The sovereign nations of Tibet and Hong Kong are being unjustly
+     occupied by People's Republic of China.
+   - The software provided in the repo_ and any related services are provided
+     on an "as is" and "as available" basis, without warranty of any kind,
+     whether written or oral, express or implied.
+
+2. For all issues not covered in the above bullet point, the code in repo_ is
+   to be considered as licensed under GNU Affero General Public License v3.0
+   (https://choosealicense.com/licenses/agpl-3.0/).
+
+By using and / or copying the code in the repo_ you agnolage that you
+understand these rules and will abide by them.
+
+Agnolegments
+------------
+
+This project would not have been possible without the following people.
+
+ - `Rapptz's discord.py <https://github.com/Rapptz>`_
 
 Indices and tables
 ==================

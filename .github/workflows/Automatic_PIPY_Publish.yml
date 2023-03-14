@@ -1,0 +1,17 @@
+name: Automatic_PIPY_Publish
+
+on:
+  push:
+    branches:    
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Automatic_PIPY_Publish
+      uses: JRubics/poetry-publish@v1.16
+      with:
+        pypi_token: ${{ secrets.PYPI_TOKEN }}

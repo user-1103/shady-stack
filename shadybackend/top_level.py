@@ -18,8 +18,6 @@ from argparse import ArgumentParser
 DEFAULT_WEB_ROOT = "./tree"
 # Default location for the api to be collected from
 DEFAULT_API_ROOT = "./api.py"
-# Shady backend version.
-VERSION = 1
 
 
 def run_top_level(start_g: Dict[str, Any], bridge: str,
@@ -78,8 +76,7 @@ def run() -> None:
     parser = ArgumentParser(
         prog='Shady Backend',
         description=('CLI interface to run parts of'
-                     ' the shadybackend through DAD.'),
-        epilog=f'Using: Shady Backend Release {VERSION}')
+                     ' the shadybackend through DAD.'))
     parser.add_argument("-v", "--verbose", action='store_true',
                         help="Be chatty.")
     parser.add_argument("--tree", default=DEFAULT_WEB_ROOT,
